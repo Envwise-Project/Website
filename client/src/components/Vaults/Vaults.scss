@@ -1,0 +1,333 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+$breakpoints: (
+  mobile: 540px,
+  xs: 750px,
+  sm: 900px,
+  md: 1200px,
+  lg: 1600px,
+  lgh: 750px,
+);
+
+@mixin media-down($breakpoint) {
+  @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin media-up($breakpoint) {
+  @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin height-down($breakpoint) {
+  @media screen and (max-height: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+.general {
+  width: 100vw;
+  height: 100vh;
+  min-height: 420px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  //position: relative;
+}
+
+.vaults {
+  // width: 100vw;
+  // height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 72px;
+  position: relative;
+  @include media-down(xs) {
+    position: relative;
+    zoom: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 650px;
+    //width: 85%;
+    height: 100%;
+    min-height: 844px;
+    //top: 15px;
+    gap: 0px;
+    justify-content: space-evenly;
+    @include media-down(mobile){
+      width: 80%;
+      align-items: center;
+    }
+  }
+  .vaults-title {
+    display: none;
+    @include media-down(mobile) {
+      display: flex;
+      width: 358px;
+      zoom: 85%;
+      top: 50px;
+      padding-bottom: 30px;
+      position: relative;
+    }
+    h1 {
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 36px;
+    }
+  }
+}
+.vault-container {
+  position: relative;
+  background-color: white;
+  width: 582px;
+  height: 362px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 18px;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+
+  @include media-down(lg) {
+    zoom: 90%;
+  }
+
+  @include height-down(lgh) {
+    zoom: 65%;
+  }
+
+  @include media-down(md) {
+    zoom: 80%;
+  }
+
+  @include media-down(sm) {
+    zoom: 65%;
+  }
+
+  @include media-down(xs) {
+    zoom: 65%;
+  }
+
+  @include media-down(mobile) {
+    width: 100%;
+    height: 395px;
+    zoom: 85%;
+    padding-bottom: 10px;
+  }
+}
+.stake-name {
+  display: flex;
+  position: relative;
+  width: 88px;
+  height: 30px;
+  left: 27px;
+  top: 37px;
+  margin: 0px;
+  justify-content: start;
+  align-items: center;
+}
+.coin-name {
+  position: relative;
+  width: 43px;
+  height: 24px;
+  left: 15px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  color: #000000;
+}
+.coin-icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  margin: 0;
+  @include media-down(mobile) {
+    width: 20px;
+    height: 20px;
+  }
+}
+.staking {
+  position: absolute;
+  height: 18px;
+  width: 109px;
+  left: 27px;
+  top: 80px;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+  text-align: left;
+  display: flex;
+  align-items: center;
+  color: #a3a3a3;
+}
+.icon2 {
+  display: none;
+  @include media-down(mobile) {
+    position: absolute;
+    display: flex;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    left: 24px;
+    top: 104px;
+    align-items: center;
+  }
+}
+.stake {
+  position: absolute;
+  width: 62px;
+  height: 48px;
+  left: 27px;
+  top: 98px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #4caf50;
+  @include media-down(mobile) {
+    display: flex;
+    height: 47px;
+    width: 23px;
+    align-items: flex-end;
+    top: 93px;
+    left: 56px;
+    color: black;
+  }
+}
+.stakes-grid {
+  position: absolute;
+  width: 392px;
+  height: 40px;
+  left: 27px;
+  top: 171px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  h3 {
+    margin: 0px;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+
+    color: #a3a3a3;
+  }
+  h4 {
+    margin: 0px;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  @include media-down(mobile) {
+    flex-direction: column;
+    align-items: stretch;
+    width: 90%;
+    height: 79px;
+  }
+}
+.stakes-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  @include media-down(mobile) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.numbers {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.icon3 {
+  display: none;
+  width: 20px;
+  height: 20px;
+  @include media-down(mobile) {
+    position: relative;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    align-items: center;
+  }
+}
+
+.vault-buttons {
+  position: absolute;
+  width: 528px;
+  height: 54px;
+  top: 276px;
+  left: 27px;
+  bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @include media-down(mobile) {
+    flex-direction: column;
+    width: 310px;
+    height: 112px;
+    gap: 12px;
+  }
+  .vault-button {
+    position: relative;
+    padding: 0px;
+    border: 0px;
+    width: 254px;
+    height: 54px;
+    background-color: #fff1f2;
+    color: #f7931a;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background-color: #f7931a;
+      color: white;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media-down(mobile) {
+      flex-direction: column;
+      width: 310px;
+      height: 50px;
+    }
+  }
+}

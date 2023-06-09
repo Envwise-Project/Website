@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "img": "LBM",
+      "name": "Libertum",
+      "shortName": "LBM",
+      "stakingAPR": "15.3%",
+      "daily": "2,400",
+      "total": "5.72"
+    },
+    {
+      "img": "LUSD",
+      "name": "LUSD",
+      "shortName": "LUSD",
+      "stakingAPR": "15.3%",
+      "daily": "2,400",
+      "total": "5.72"
+    }
+  ]
+}

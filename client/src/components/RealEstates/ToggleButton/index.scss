@@ -1,0 +1,43 @@
+.toggle-switch {
+	grid-column-start: 5;
+	grid-column-end: 6;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	width: 7vw;
+	height: 48px;
+	background-color: var(--modern-white);
+	border-radius: 16px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	.containerGridIcon {
+		width: 45%;
+		border-radius: 8px;
+		border: 0.5px solid transparent;
+		margin: 0px 5px 0px 5px;
+
+		img {
+			width: 20px;
+			height: 20px;
+			margin-top: 5px;
+		}
+		transition: ease-in-out 0.25s;
+	}
+	.containerGridIcon.isActive {
+		width: 45%;
+		margin: 0px 5px 0px 5px;
+		border-radius: 8px;
+		background-color: var(--white-color);
+	}
+}
+.toggle-switch:hover {
+	cursor: pointer;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+	.toggle-switch {
+		display: none;
+	}
+}

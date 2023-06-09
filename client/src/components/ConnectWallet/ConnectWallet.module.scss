@@ -1,0 +1,155 @@
+.Container{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.261);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition:opacity .5s, background-color 1s;
+}
+
+.ContainerClosed{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    z-index: 0;
+    background:none;
+    pointer-events: none;
+    transition: opacity .5s, background-color 0s;
+}
+
+.FlexContainer{
+    display: flex;
+    width: 544px;
+    height: 523px;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius:24PX;
+    z-index: 99;
+    box-shadow: 10px 10px 48px -18px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 48px -18px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 48px -18px rgba(0,0,0,0.75);
+    align-items: center;
+    position: fixed;
+    bottom: 20%;
+    transition: bottom .5s;
+    
+}
+
+.FlexContainerClosed{
+    display: flex;
+    width: 544px;
+    height: 523px;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius:24PX;
+    z-index: 99;
+    box-shadow: 10px 10px 48px -18px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 48px -18px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 48px -18px rgba(0,0,0,0.75);
+    position: fixed;
+    bottom: 0;
+    align-items: center;
+    transition: bottom .5s;
+
+}
+
+.Title{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    height: 79px;
+}
+
+.Title h1 {
+font-weight: 700;
+font-size: 18px;
+line-height: 30px;
+ position: absolute;
+ left: calc(50% - 148px/2);
+top: calc(50% - 30px/2 - 2.1px);
+color: black;
+}
+
+.Title svg{
+    position: absolute;
+width: 16px;
+height: 16px;
+position: absolute;
+width: 16px;
+height: 16px;
+color:  black;
+left: calc(50% - 16px/2 + 236px);
+top: calc(50% - 16px/2 - 3.5px);
+}
+
+.Title svg:hover{
+    color: rgb(171, 3, 3);
+}
+
+.WalletSelect{
+    display: grid;
+    position: absolute;
+    width: 464px;
+    height: 364px;
+    grid-template-columns: repeat(4, 104px);
+    grid-auto-rows: 100px;
+    gap: 16px;
+    top: 119px;
+}
+
+
+.Button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+width: 104px;
+height: 86px;
+border-radius: 8px;
+color: black;
+font-family: 'Arial';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+display: flex;
+align-items: center;
+text-align: center;
+cursor: pointer;
+}
+
+.Button:hover p{
+    color: #F4911A;
+}
+
+.Terms{
+    position: absolute;
+    bottom: 25px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #9597A1;
+}
+
+.Terms p{
+    color: #F4911A;
+
+}
+
+.Title div{
+    cursor:pointer;
+}

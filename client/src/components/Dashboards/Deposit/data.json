@@ -1,0 +1,62 @@
+{ "data" : [
+    {
+        "img" : "BTC",
+        "name" : "Bitcoin",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "LTC",
+        "name" : "LTC",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "ETH",
+        "name" : "Ethereum",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "BTC",
+        "name" : "Bitcoin",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "LTC",
+        "name" : "LTC",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "ETH",
+        "name" : "Ethereum",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "BTC",
+        "name" : "Bitcoin",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "LTC",
+        "name" : "LTC",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "ETH",
+        "name" : "Ethereum",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "BTC",
+        "name" : "Bitcoin",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "LTC",
+        "name" : "LTC",
+        "amount" : "0 BTC"
+    },
+    {
+        "img" : "ETH",
+        "name" : "Ethereum",
+        "amount" : "0 BTC"
+    }
+]}
