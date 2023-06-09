@@ -17,6 +17,7 @@ import { Divide as Hamburger } from "hamburger-react";
 import closeIcon from "../../../../assets/close.svg";
 import copyIcon from "../../../../assets/Copy.svg";
 import logoutIcon from "../../../../assets/Logout.svg";
+import envwiseLogo from "../../../../assets/ENVWISE.png";
 
 function NavbarMarket() {
   const { logout, user } = useAuth0();
@@ -33,7 +34,6 @@ function NavbarMarket() {
     if (userModal) setUserModal(false);
     if (!userModal) setUserModal(true);
   };
-  console.log(userModal);
 
   useEffect(() => {
     document.addEventListener("click", (e) => {
@@ -69,10 +69,11 @@ function NavbarMarket() {
       {screenWidth > 600 ? (
         <div className={style.container}>
           <div className={style.flexContainer}>
-            <a href="/" className={style.icon}>
-              <img src="../icons/Logo.svg"></img>
-              <img src="../icons/Logo Cherryswap.svg"></img>
-            </a>
+            <img
+              src={envwiseLogo}
+              alt="ENVWISE"
+              className={style.envwiseLogo}
+            />
             <div className={style.buttons}>
               <div
                 data-dropdown-button
@@ -191,8 +192,12 @@ function NavbarMarket() {
               />
             </div>
             <a href="/" className={openAccountModal ? style.icon : style.icon2}>
-              <img src="../icons/Logo.svg"></img>
-              <img src="../icons/Logo Cherryswap.svg"></img>
+          
+            <img
+              src={envwiseLogo}
+              alt="ENVWISE"
+              className={style.envwiseLogo}
+            />
             </a>
             {openAccountModal && (
               <div onClick={openAccountModal} className={style.accountIcon}>

@@ -1,3 +1,8 @@
+.envwiseLogo {
+  width: 100%;
+  width: 104px;
+}
+
 .userModal {
   position: fixed;
   top: 0;
@@ -94,7 +99,7 @@
 }
 
 .userModal-btn button:hover {
-  border-color: #f7931a;
+  border-color: #2EA828;
   transition: all ease-in 150ms;
 }
 
@@ -158,6 +163,7 @@
   line-height: 18px;
   text-align: center;
   color: #000000;
+  padding: 1rem 0;
 }
 
 .flexContainer {
@@ -253,7 +259,7 @@
 .button:hover,
 .button2:hover,
 .user svg:hover {
-  color: #f7931a;
+  color: #2EA828;
 }
 
 .buttons2 {
@@ -290,7 +296,7 @@
 .languageButton:hover {
   svg,
   p {
-    color: #f7931a;
+    color: #2EA828;
   }
 }
 
@@ -366,7 +372,7 @@
 }
 
 .hamburger:hover {
-  color: #f7931a;
+  color: #2EA828;
 }
 
 .userImage {
@@ -392,6 +398,11 @@
   .container {
     width: 100%;
   }
+
+  .envwiseLogo {
+    transform: translateX(28px);
+  }
+
   .flexContainer {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
