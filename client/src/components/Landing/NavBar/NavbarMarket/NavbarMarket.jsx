@@ -146,7 +146,7 @@ function NavbarMarket() {
                               onClick={() =>
                                 logout({
                                   logoutParams: {
-                                    returnTo: window.location.origin,
+                                    returnTo: `${window.location.origin}/marketplace/`,
                                   },
                                 })
                               }
@@ -192,12 +192,11 @@ function NavbarMarket() {
               />
             </div>
             <a href="/" className={openAccountModal ? style.icon : style.icon2}>
-          
-            <img
-              src={envwiseLogo}
-              alt="ENVWISE"
-              className={style.envwiseLogo}
-            />
+              <img
+                src={envwiseLogo}
+                alt="ENVWISE"
+                className={style.envwiseLogo}
+              />
             </a>
             {openAccountModal && (
               <div onClick={openAccountModal} className={style.accountIcon}>
@@ -242,7 +241,7 @@ function NavbarMarket() {
                       onClick={() =>
                         logout({
                           logoutParams: {
-                            returnTo: window.location.origin,
+                            returnTo: `${window.location.origin}/marketplace/`,
                           },
                         })
                       }

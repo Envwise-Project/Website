@@ -10,18 +10,26 @@ import { useNavigate } from "react-router-dom";
 
 const index = () => {
   const navigate = useNavigate();
-  const { isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
+
+  const handleLogin = () => {
+    const redirectUri = `${window.location.origin}/marketplace/`;
+    loginWithRedirect({
+      redirectUri: redirectUri,
+    });
+  };
 
   useEffect(() => {
     if (!isLoading) {
       if (!isAuthenticated) {
-        navigate("/");
+        handleLogin();
       }
     }
   }, [navigate, isAuthenticated, isLoading]);
 
   return (
-    !isLoading && (
+    !isLoading &&
+    isAuthenticated && (
       <div className={css.container}>
         <Classes />
         <div className={css.filtersContainer}>
