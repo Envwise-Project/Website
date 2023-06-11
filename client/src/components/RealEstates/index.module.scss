@@ -1,12 +1,13 @@
 .container {
   width: 100%;
-  font-family: Inter;
+  font-family: var(--EnvwiseFont);
 }
 
 .container h2 {
   color: #515562;
   text-align: left;
-  font-family: Inter;
+  font-family: var(--EnvwiseFont);
+
   padding: 0 1.2rem;
 }
 
@@ -27,7 +28,7 @@
   border-radius: 12px;
   border: 1px solid #e6e8ec;
   color: #23262f;
-  font-family: Inter;
+  font-family: var(--EnvwiseFont);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -46,7 +47,7 @@
   outline: none;
   box-shadow: 0px 8px 16px -8px rgba(15, 15, 15, 0.4);
   border-radius: 12px;
-  font-family: Inter;
+  font-family: var(--EnvwiseFont);
 }
 
 @media (min-width: 730px) {

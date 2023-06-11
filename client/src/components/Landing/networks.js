@@ -7,13 +7,12 @@ import tiktok from "./assets/networks/tiktok.svg";
 export const networks = [
   {
     net: instagram,
-    href: "https://www.instagram.com/libertum_project/",
+    href: "https://www.instagram.com/envwise/",
   },
-  { net: twitter, href: "https://twitter.com/libertumproject" },
-  { net: github, href: "https://github.com/Libertum-Project" },
+  { net: twitter, href: "https://www.linkedin.com/company/envwise/?originalSubdomain=uk" },
   {
     net: linkedin,
-    href: "https://www.linkedin.com/company/libertum-project/",
+    href: "https://www.linkedin.com/company/envwise/?originalSubdomain=uk",
   },
   // { net: tiktok, href: "" },
 ];
