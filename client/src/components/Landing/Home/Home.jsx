@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect } from "react";
 import launchapp from "./assets/launchapp.svg";
 import NavBar from "../NavBar/NavBar";
 import "./Home.scss";
@@ -9,20 +8,10 @@ import "./Home.scss";
 export default function Home() {
   const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0();
 
-  const handleLogin = () => {
-    const redirectUri = `${window.location.origin}/marketplace/`;
-    loginWithRedirect({
-      redirectUri: redirectUri,
-    });
-  };
-
-  useEffect(() => {
-    if (!isLoading) {
-      if (!isAuthenticated) {
-        handleLogin();
-      }
-    }
-  }, [isAuthenticated, isLoading]);
+  const redirectUri = `${window.location.origin}/marketplace/`;
+  loginWithRedirect({
+    redirectUri: redirectUri,
+  });
 
   return (
     !isLoading &&
