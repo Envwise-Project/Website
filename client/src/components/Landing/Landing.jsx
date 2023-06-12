@@ -11,9 +11,13 @@ import "./Landing.scss";
 import Loading from "../Loading/Loading";
 
 export default function Landing() {
-  const { isLoading } = useAuth0();
+  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
+  const redirectUri = `${window.location.origin}/marketplace/`;
+  loginWithRedirect({
+    redirectUri: redirectUri,
+  });
 
-  return !isLoading ? (
+  return !isLoading && isAuthenticated ? (
     <div>
       <Home />
       <Protocol />
