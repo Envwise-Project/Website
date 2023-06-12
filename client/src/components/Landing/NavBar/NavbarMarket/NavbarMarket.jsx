@@ -69,11 +69,13 @@ function NavbarMarket() {
       {screenWidth > 600 ? (
         <div className={style.container}>
           <div className={style.flexContainer}>
-            <img
-              src={envwiseLogo}
-              alt="ENVWISE"
-              className={style.envwiseLogo}
-            />
+            <a href="https://envwise.com/">
+              <img
+                src={envwiseLogo}
+                alt="ENVWISE"
+                className={style.envwiseLogo}
+              />
+            </a>
             <div className={style.buttons}>
               <div
                 data-dropdown-button
