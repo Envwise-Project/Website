@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import arrow from "./assets/arrow.svg";
 import chatGPT from "./assets/chatGPT.svg";
 import newChat from "./assets/newChat.svg";
@@ -9,156 +10,20 @@ import ChatGreenIcon from "./assets/chatGreenIcon.svg";
 import sparkles from "./assets/sparkles.svg";
 import axios from "axios";
 import css from "./Chatbot.module.css";
+import SmallLoading from "./Small_Loading/Small__Loading.jsx";
 
 const AskMe = () => {
+  const navigate = useNavigate();
   const API_KEY = import.meta.env.VITE_GPT_KEY;
   const url = "https://api.openai.com/v1/chat/completions";
   const [messages, setMessages] = useState([]);
   const [aiResponse, setAiResponse] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const expectedKeywords = [
-    "investment property",
-    "real estate investment",
-    "buying property",
-    "invest in property uk",
-    "to invest in real estate",
-    "investment property for sale",
-    "commercial property investment",
-    "real estate 101",
-    "real estate investing for beginners",
-    "property investment for beginners",
-    "buying rental property",
-    "property investment company",
-    "real estate fund",
-    "digital real estate",
-    "real estate crowdfunding",
-    "best investment properties",
-    "property crowdfunding",
-    "rental property investment",
-    "invest in land",
-    "house investment",
-    "investment homes",
-    "commercial real estate investing",
-    "property investment strategy",
-    "building a property portfolio",
-    "real estate how to make money",
-    "real estate investment company",
-    "rental properties for sale",
-    "real estate investment strategies",
-    "property investment funds",
-    "real estate crowdfunding uk",
-    "real estate how to start",
-    "real estate stocks",
-    "buying real estate",
-    "real estate for beginners",
-    "property investment opportunities",
-    "investors buying homes",
-    "residential property investment",
-    "best areas to invest in property",
-    "property investment funds uk",
-    "property crowdfunding uk",
-    "real estate blockchain",
-    "making money in real estate",
-    "property investors near me",
-    "buying property in canada",
-    "find investment properties",
-    "property development investment",
-    "investment property advice",
-    "real estate funds uk",
-    "property investment uk for beginners",
-    "best real estate investments",
-    "investing in real estate with no money",
-    "good real estate investments",
-    "reit property",
-    "buying property in usa",
-    "real estate tokenization",
-    "real estate portfolio",
-    "real estate investment group",
-    "types of property investment",
-    "real estate investing 101",
-    "reit investing for beginners",
-    "best uk reits",
-    "invest in property shares",
-    "commercial property funds",
-    "crowdfunding property investment",
-    "property investment opportunities uk",
-    "real estate assets",
-    "reit real estate",
-    "real estate investment opportunities",
-    "real estate investing canada",
-    "investment property for sale near me",
-    "real estate strategies",
-    "learn real estate",
-    "real estate investment usa",
-    "property investment group",
-    "property invest usa",
-    "property portfolio example",
-    "best property funds",
-    "return on investment property",
-    "nft real estate",
-    "tokenized real estate",
-    "invest in real estate online",
-    "fractional ownership real estate",
-    "owning rental property",
-    "fractional investment",
-    "property stocks",
-    "property investment meaning",
-    "purchase commercial property",
-    "starting a property portfolio",
-    "best rental property websites",
-    "residential investment property for sale",
-    "property investment software",
-    "investment property portfolio",
-    "buying a house as an investment",
-    "realestate share price",
-    "investing in rental property for beginners",
-    "best place to invest in real estate",
-    "best real estate stocks",
-    "top reits",
-    "real estate rental property",
-    "owning property",
-    "property development and investment",
-    "real estate fund management software",
-    "best way to invest in property",
-    "cash flow properties",
-    "estate invest",
-    "green-tech",
-    "smarter pathways",
-    "greener properties",
-    "Property",
-    "learning management system",
-    "zero-emission standards",
-    "property tokenization system",
-    "F-NFT",
-    "sustainability",
-    "renewable energy",
-    "carbon footprint",
-    "energy efficiency",
-    "environmental impact",
-    "green buildings",
-    "sustainable development",
-    "envwise",
-    "rental",
-    "income",
-    "token",
-    "management system",
-    "zero-emission standards",
-    "property tokenization system",
-    "NFT",
-    "sustainability",
-    "renewable energy",
-    "carbon footprint",
-    "energy efficiency",
-    "environmental impact",
-    "green buildings",
-    "sustainable development",
-    "envwise",
-    "rental",
-    "income",
-    "chat",
-    "carbon",
-    "footprint",
-  ];
+  const handleRedirect = () => {
+    navigate("/marketplace");
+  };
+  const expectedKeywords = [];
 
   const handleMessageSubmit = async (e) => {
     e.preventDefault();
@@ -170,14 +35,14 @@ const AskMe = () => {
         message.toLowerCase().includes(keyword.toLowerCase())
       );
 
-      if (containsKeyword) {
+      if (!containsKeyword) {
         const newMessage = {
           text: message,
           timestamp: new Date().toLocaleString(),
           sender: "user",
         };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
-
+        setIsLoading(true);
         try {
           const response = await axios.post(
             url,
@@ -186,11 +51,12 @@ const AskMe = () => {
                 {
                   role: "system",
                   content:
-                    "Envwise is a company that uses blockchain technology to tokenize real estate. This makes it possible for anyone to invest in real estate. Envwise believes that their platform can help to accelerate the green revolution. Here are a few words to describe Envwise: Sustainable, Accessible, Revolutionary, Innovative, Blockchain-based.",
+                    "You are a helpful assistant.What is Envwise? Envwise is a green-tech platform that creates a smarter pathway to greener properties. Our vision is to create a future of zero-emission buildings. Paving the way to create a world of zero-emission buildings by enabling the emission calculation, controls, its associated grants, incentives, and green funding to unlock the potential for greener living. We want our community (Econeers) to ethically earn when they contribute to the Envwise fractionalized zero-emission property portfolio. Why use Envwise? Net-zero emissions are crucial to avoid catastrophic effects to our climate. Due to its high energy consumption and greenhouse gas emissions, the built environment has a significant impact. Envwise can help. Our pioneering AI-fueled platform seamlessly bridges the gap between environmental sustainability and financial benefits. 1. Buildings are a major climate pollutant (39% of all emissions). 2. Its complex - applying for grants and investing in property. 3. They transcend every economic and social sector of humanity impacting health and well-being. 4. Sustainable buildings have lower operating costs and higher value. What is property tokenisation? The ENVWISE platform enables everyone to be part of our success by investing in our green property fund which allows the property owners to get funding towards sustainability and in return pay a small passive income to the investors. 1. Token Launch: Envwise is offering property owners an opportunity to secure funding for sustainable investments through property tokenization geared by F-NFT. 2. Platform Integration: Property owners have the opportunity to raise green funding by tokenizing their property by creating its F-NFT. The benefit behind F-NFT is the ownership of the property do not change. 3. Strategic Partnerships: ENVWISE will forge strategic alliances and collaborations to broaden the reach of our property tokenization funding scheme across industries. How can you help me? The ENVWISE AI engine customizes a roadmap to create zero-emission buildings for households and businesses by: 1. Grants & Funding: ENVWISE's state-of-the-art AI empowers the community with knowledge and streamlines the acquisition of grants and funding for green projects. It is now effortless for individuals and organizations to obtain financial incentives for sustainable projects. 2. Net-Zero Learning and Development: ENVWISE's comprehensive education platform focuses on net-zero emissions and sustainable practices, delivering interactive training modules, workshops, and best practices to individuals and businesses striving for a greener future. 3. Eco Marketplace: ENVWISE cultivates a vibrant ecosystem of eco-conscious econeers and businesses by connecting them to a curated selection of environmentally friendly products and services.",
                 },
                 { role: "user", content: message },
               ],
               model: "gpt-3.5-turbo",
+              max_tokens: 100,
             },
             {
               headers: {
@@ -208,6 +74,7 @@ const AskMe = () => {
           };
           setMessages((prevMessages) => [...prevMessages, aiResponse]);
           setAiResponse(data.choices[0].message.content);
+          setIsLoading(false);
         } catch (error) {
           console.error(error);
         }
@@ -237,12 +104,14 @@ const AskMe = () => {
       "Content-Type": "application/json",
     };
 
+    setIsLoading(true);
     try {
       const response = await axios.post(
         apiUrl,
         {
           messages: [{ role: "user", content: text }],
           model: "gpt-3.5-turbo",
+          max_tokens: 100,
         },
         {
           headers: {
@@ -259,6 +128,7 @@ const AskMe = () => {
         sender: "user",
       };
       setMessages((prevMessages) => [...prevMessages, newMessage]);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -266,6 +136,7 @@ const AskMe = () => {
 
   return (
     <div className={css.chatbot__container}>
+      {isLoading && <SmallLoading />}
       <div className={css.chatbot}>
         <h2>AskMe</h2>
         {messages.map((message, index) => (
@@ -314,7 +185,7 @@ const AskMe = () => {
         <h2>Recommendations</h2>
         <div className={css.recommendations__body}>
           <h3>
-            Welcome to our EnvwiseAI. Try some of the examples below to help you
+            Welcome to Green AI. Try some of the examples below to help you
             reduce your carbon footprint and make the world a better place.
           </h3>
 
@@ -323,7 +194,7 @@ const AskMe = () => {
               <div
                 onClick={() =>
                   handleBtn(
-                    "short and easy response - Where can I apply for carbon reduction grants in europe?"
+                    "short and easy response - Where can I apply for carbon reduction grants in UK?"
                   )
                 }
               >
@@ -354,17 +225,17 @@ const AskMe = () => {
             </div>
 
             <div className={css.button__row}>
-              <div onClick={() => handleBtn("Green funding")}>
+              <div onClick={handleRedirect}>
                 <i>
                   <img src={sparkles} alt="Sparkles" />
                 </i>
                 <h4>Green Funding</h4>
-                <p>Insert the link to the property listing</p>
+                <p>Go to marketplace</p>
               </div>
               <div
                 onClick={() =>
                   handleBtn(
-                    " Easy response - Can you recommend some consultants to help me reduce my carbon footprint"
+                    " Easy response - Can you recommend some good sources to provide information on zero net emission buildings"
                   )
                 }
               >
@@ -373,8 +244,8 @@ const AskMe = () => {
                 </i>
                 <h4>Green Support</h4>
                 <p>
-                  Can you recommend some consultants to help me reduce my carbon
-                  footprint?.
+                  Can you recommend some good sources to provide information on
+                  zero net emission buildings
                 </p>
               </div>
             </div>
