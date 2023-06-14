@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import Home from "./Home/Home";
 import Protocol from "./Protocol/Protocol";
 import Services from "./Services/Services";
@@ -7,9 +8,16 @@ import Subscribe from "./Subscribe/Subscribe";
 import Footer from "./Footer/Footer";
 import divider from "./assets/divider.png";
 import "./Landing.scss";
+import Loading from "../Loading/Loading";
 
 export default function Landing() {
-  return (
+  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
+  const redirectUri = `${window.location.origin}/marketplace/`;
+  loginWithRedirect({
+    redirectUri: redirectUri,
+  });
+
+  return !isLoading && isAuthenticated ? (
     <div>
       <Home />
       <Protocol />
@@ -21,5 +29,7 @@ export default function Landing() {
       <Subscribe />
       <Footer />
     </div>
+  ) : (
+    <Loading />
   );
 }

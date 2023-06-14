@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import style from "./PopUpMarket.module.scss";
+import { Link } from "react-router-dom";
 import {
   IoGridOutline,
   IoArrowForward,
@@ -22,7 +23,7 @@ function PopUpMarket() {
   return (
     <div className={style.Container} data-dropdown>
       <div className={style.flexContainer}>
-        <a href="/marketplace" className={style.button}>
+        <Link to="/marketplace" className={style.button}>
           <div className={style.icon}>
             <IoGridOutline />
           </div>
@@ -32,7 +33,7 @@ function PopUpMarket() {
             </div>
             <p>Buying and selling houses has never been so easy</p>
           </div>
-        </a>
+        </Link>
         <div className={style.buttonSoon}>
           <div className={style.icon}>
             <BsFileEarmarkPlus />

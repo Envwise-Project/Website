@@ -34,11 +34,15 @@ import AdminMenu from "./components/Admin/AdminMenu/AdminMenu";
 import { useAccount } from "wagmi";
 import { getAdminByWallet, getUnapprovedProjects } from "../redux/actions";
 import { setIsAdmin } from "../redux/reducer";
+import ChatBot from "./components/ChatBot/ChatBot";
+import { useMediaQuery } from "react-responsive";
 import SupportCenter from "./components/SupportCenter/SupportCenter";
 import DetailSupport from "./components/DetailSupport/DetailSupport";
 import Cards from "../src/components/Cards/Cards";
-
+import BuyProperty from "./components/RealEstateDetail/BuyProperty";
 import IDO from "./components/IDO/IDO";
+import Footer from "./components/RealEstates/Footer/Footer.jsx";
+
 function App() {
   const dispatch = useDispatch();
   const [stateModal, setStateModal] = useState(false);
@@ -47,6 +51,7 @@ function App() {
   const { selectedIcon, walletPopUp, adminWallet, isAdmin } = useSelector(
     (state) => state.reducerCompleto
   );
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const AppLayout = () => (
     <>
       {/* <div className="bgImage">
@@ -106,6 +111,7 @@ function App() {
               </div>
             }
           />
+          <Route path="/marketplace/buy/:number" element={<BuyProperty />} />
           {/* <Route
             path={"/marketplace/:id"}
             element={
@@ -113,7 +119,11 @@ function App() {
                 <Details />
               </div>
             }
-          /> */}
+          />
+
+           */}
+          <Route path={"/chatbot"} element={<ChatBot />} />
+          <Route />
           {/* <Route
             path={"/launchpad"}
             element={
@@ -154,6 +164,10 @@ function App() {
               </div>
             }
           />
+          <Route path="/support" element={<SupportCenter />} />{" "}
+          <Route path="*" element={<NotFound />} />
+          <Route path="/detail/:id" element={<DetailSupport />} />
+          <Route path="/cards" element={<Cards />} />
           {/* <Route
             path="/realestate"
             element={
@@ -162,16 +176,12 @@ function App() {
               </div>
             }
           /> */}
-
           {/* Dentro de este Route van todas las cosas que tengan sidebar */}
         </Route>
         <Route path="/swap" element={<CoomingSoon />} />
         <Route path="/comingsoon" element={<CoomingSoon />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/support" element={<SupportCenter />} />
-        <Route path="/detail/:id" element={<DetailSupport />} />
-        <Route path="/cards" element={<Cards />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
