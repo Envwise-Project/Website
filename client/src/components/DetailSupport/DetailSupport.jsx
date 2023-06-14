@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "../Landing/NavBar/NavBar";
-import Footer from "../Landing/Footer/Footer";
 import styles from "./DetailSupport.module.scss";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
@@ -9,9 +7,6 @@ import ThumbUp from '../../assets/ThumbUp.png';
 import ThumbDown from '../../assets/ThumbDown.png';
 import {Link} from 'react-router-dom';
 import SearchBar from '../SearchBar/SearchBar'
-
-
-
 
 export default function DetailSupport() {
   const { id } = useParams(); // get the  question ID  from the parameters of the URL.
@@ -61,9 +56,6 @@ export default function DetailSupport() {
 
   return (
     <div className={styles.detailContainer}>
-      <nav>
-        <NavBar />
-      </nav>
       <div>
         <h1 className={styles.h1}>Support Center</h1>
         <span>
@@ -104,9 +96,6 @@ export default function DetailSupport() {
           </div>     
         </div>
       </div>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 }

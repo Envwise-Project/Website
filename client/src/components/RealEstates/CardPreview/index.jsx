@@ -18,11 +18,11 @@ const index = (props) => {
 
         <div className={css.description}>
           <p>
-            Pasive Income per Token: {props.PIT}
+            Pasive Income per Token: $ {props.PIT}
             <br />
-            Proyected Rental Yield: {props.PRY}
+            Proyected Rental Yield: $ {props.PRY}
             <br />
-            Property Tokenised: {props.tokenised}
+            Property Tokenised: {props.tokenised} % 
           </p>
         </div>
         <div className={css.rating}>
