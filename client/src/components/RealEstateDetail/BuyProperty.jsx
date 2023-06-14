@@ -62,7 +62,7 @@ const BuyProperty = () => {
     <div className="hero min-h-screen bg-base-200 mt-24 pb-24">
       <div className="hero-content flex-col lg:flex-row">
         <div>
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-3xl font-bold">
             {land.address} | {land.location}
           </h1>
           {/* <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p> */}
