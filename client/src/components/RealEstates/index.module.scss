@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   font-family: var(--EnvwiseFont);
+  padding-bottom: 6rem;
 }
 
 .container h2 {
@@ -17,6 +18,7 @@
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
+  padding: 2rem 0;
 }
 
 .filtersSelect {

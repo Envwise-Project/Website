@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "daisyui";
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700;900&family=Rubik:wght@300&display=swap");
 :root {
   --white-color: #fff;
@@ -9,8 +14,9 @@
   --orange-darker: #f7931a;
   --orange-hover: #c77715;
   --EnvwiseFont: Verdana, Geneva, sans-serif;
-  --EnvwiseColor: #2EA828;
+  --EnvwiseColor: #2ea828;
   font-family: Verdana, Geneva, sans-serif;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;

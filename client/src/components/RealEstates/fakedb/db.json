@@ -16,11 +16,11 @@
     "type": "Entire Home",
     "address": "102 Cove Lane",
     "location": "St Louis · MO 63128",
-    "PIT": "$6.21 / year",
-    "PRY": "11.18%",
-    "Tokenised": "56%",
-    "NFTPrice": "$55.59",
-    "AvailablesNFT": 1400
+    "PIT": 6.21, 
+    "PRY": 11.18,
+    "Tokenised": 48,
+    "NFTPrice": 8,
+    "AvailablesNFT": 1200
   },
   {
     "id": "2",
@@ -35,10 +35,10 @@
     "type": "Entire Home",
     "address": "102 Cove Lane",
     "location": "St Louis · MO 63128",
-    "PIT": "$6.21 / year",
+    "PIT": "6.21 / year",
     "PRY": "11.18%",
     "Tokenised": "56%",
-    "NFTPrice": "$55.59",
+    "NFTPrice": "55.59",
     "AvailablesNFT": 1400
   },
   {
@@ -54,10 +54,10 @@
     "type": "Entire Home",
     "address": "102 Cove Lane",
     "location": "St Louis · MO 63128",
-    "PIT": "$6.21 / year",
+    "PIT": "6.21 / year",
     "PRY": "11.18%",
     "Tokenised": "56%",
-    "NFTPrice": "$55.59",
+    "NFTPrice": "55.59",
     "AvailablesNFT": 1400
   },
   {
@@ -73,10 +73,10 @@
     "type": "Entire Home",
     "address": "102 Cove Lane",
     "location": "St Louis · MO 63128",
-    "PIT": "$6.21 / year",
+    "PIT": "6.21 / year",
     "PRY": "11.18%",
     "Tokenised": "56%",
-    "NFTPrice": "$55.59",
+    "NFTPrice": "55.59",
     "AvailablesNFT": 1400
   },
   {
@@ -92,10 +92,10 @@
     "type": "Entire Home",
     "address": "102 Cove Lane",
     "location": "St Louis · MO 63128",
-    "PIT": "$6.21 / year",
+    "PIT": "6.21 / year",
     "PRY": "11.18%",
     "Tokenised": "56%",
-    "NFTPrice": "$55.59",
+    "NFTPrice": "55.59",
     "AvailablesNFT": 1400
   },
   {

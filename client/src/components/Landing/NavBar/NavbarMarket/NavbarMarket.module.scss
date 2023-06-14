@@ -1,5 +1,4 @@
 .envwiseLogo {
-  width: 100%;
   width: 104px;
 }
 
@@ -59,6 +58,7 @@
   width: 118px;
   height: 118px;
   border-radius: 100%;
+  display: inline;
 }
 
 .userModal-body h4,
@@ -92,14 +92,14 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding: .5rem;
+  padding: 0.5rem;
   margin-top: 1rem;
   border: 1px solid #222222;
   border-radius: 8px;
 }
 
 .userModal-btn button:hover {
-  border-color: #2EA828;
+  border-color: #2ea828;
   transition: all ease-in 150ms;
 }
 
@@ -127,7 +127,6 @@
   position: relative;
 }
 
-
 .notification-badge {
   position: relative;
   display: inline-block;
@@ -140,7 +139,7 @@
   top: -1px;
   width: 10px;
   height: 10px;
-  background: #FF385C;
+  background: #ff385c;
   border-radius: 50%;
 }
 
@@ -163,7 +162,7 @@
   line-height: 18px;
   text-align: center;
   color: #000000;
-  padding: 1rem 0;
+  padding: 3rem 0;
 }
 
 .flexContainer {
@@ -259,7 +258,7 @@
 .button:hover,
 .button2:hover,
 .user svg:hover {
-  color: #2EA828;
+  color: #2ea828;
 }
 
 .buttons2 {
@@ -296,7 +295,7 @@
 .languageButton:hover {
   svg,
   p {
-    color: #2EA828;
+    color: #2ea828;
   }
 }
 
@@ -363,8 +362,7 @@
   border-radius: 29px;
   display: flex;
   justify-content: center;
-  min-width: 5rem;
-  padding: 0 0.5rem;
+  min-width: 6rem;
 }
 
 .hamburger {
@@ -372,7 +370,7 @@
 }
 
 .hamburger:hover {
-  color: #2EA828;
+  color: #2ea828;
 }
 
 .userImage {
@@ -481,7 +479,7 @@
   .userImage {
     height: 30px;
   }
-  
+
   .container {
     display: flex;
     align-items: center;

@@ -11,9 +11,6 @@ export default function SupportCenter() {
 
   return (
     <div className={styles.supcontainer}>
-      <nav>
-        <NavBar />
-      </nav>
       <div className={styles.content}>
         <h1 className={styles.h1}>Support Center</h1>
         <span>
@@ -38,9 +35,6 @@ export default function SupportCenter() {
         </div>
        
       </div>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 }
