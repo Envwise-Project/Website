@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import arrow from "./assets/arrow.svg";
 import chatGPT from "./assets/chatGPT.svg";
@@ -11,8 +11,20 @@ import sparkles from "./assets/sparkles.svg";
 import axios from "axios";
 import css from "./Chatbot.module.css";
 import SmallLoading from "./Small_Loading/Small__Loading.jsx";
+import { baseMessage } from "./baseMessage";
 
 const AskMe = () => {
+  const [location, setLocation] = useState({ country_name: "my location" });
+
+  useEffect(() => {
+    getLocation();
+  }, []);
+
+  const getLocation = async () => {
+    const currLocation = await axios.get("https://ipapi.co/json");
+    setLocation(currLocation.data);
+  };
+
   const navigate = useNavigate();
   const API_KEY = import.meta.env.VITE_GPT_KEY;
   const url = "https://api.openai.com/v1/chat/completions";
@@ -50,8 +62,7 @@ const AskMe = () => {
               messages: [
                 {
                   role: "system",
-                  content:
-                    "You are a helpful assistant.What is Envwise? Envwise is a green-tech platform that creates a smarter pathway to greener properties. Our vision is to create a future of zero-emission buildings. Paving the way to create a world of zero-emission buildings by enabling the emission calculation, controls, its associated grants, incentives, and green funding to unlock the potential for greener living. We want our community (Econeers) to ethically earn when they contribute to the Envwise fractionalized zero-emission property portfolio. Why use Envwise? Net-zero emissions are crucial to avoid catastrophic effects to our climate. Due to its high energy consumption and greenhouse gas emissions, the built environment has a significant impact. Envwise can help. Our pioneering AI-fueled platform seamlessly bridges the gap between environmental sustainability and financial benefits. 1. Buildings are a major climate pollutant (39% of all emissions). 2. Its complex - applying for grants and investing in property. 3. They transcend every economic and social sector of humanity impacting health and well-being. 4. Sustainable buildings have lower operating costs and higher value. What is property tokenisation? The ENVWISE platform enables everyone to be part of our success by investing in our green property fund which allows the property owners to get funding towards sustainability and in return pay a small passive income to the investors. 1. Token Launch: Envwise is offering property owners an opportunity to secure funding for sustainable investments through property tokenization geared by F-NFT. 2. Platform Integration: Property owners have the opportunity to raise green funding by tokenizing their property by creating its F-NFT. The benefit behind F-NFT is the ownership of the property do not change. 3. Strategic Partnerships: ENVWISE will forge strategic alliances and collaborations to broaden the reach of our property tokenization funding scheme across industries. How can you help me? The ENVWISE AI engine customizes a roadmap to create zero-emission buildings for households and businesses by: 1. Grants & Funding: ENVWISE's state-of-the-art AI empowers the community with knowledge and streamlines the acquisition of grants and funding for green projects. It is now effortless for individuals and organizations to obtain financial incentives for sustainable projects. 2. Net-Zero Learning and Development: ENVWISE's comprehensive education platform focuses on net-zero emissions and sustainable practices, delivering interactive training modules, workshops, and best practices to individuals and businesses striving for a greener future. 3. Eco Marketplace: ENVWISE cultivates a vibrant ecosystem of eco-conscious econeers and businesses by connecting them to a curated selection of environmentally friendly products and services.",
+                  content: baseMessage,
                 },
                 { role: "user", content: message },
               ],
@@ -99,17 +110,13 @@ const AskMe = () => {
 
   const handleBtn = async (text) => {
     const apiUrl = "https://api.openai.com/v1/chat/completions";
-    const headers = {
-      Authorization: `Bearer ${API_KEY}`,
-      "Content-Type": "application/json",
-    };
 
     setIsLoading(true);
     try {
       const response = await axios.post(
         apiUrl,
         {
-          messages: [{ role: "user", content: text }],
+          messages: [{ role: "user", content: baseMessage + " " + text }],
           model: "gpt-3.5-turbo",
           max_tokens: 100,
         },
@@ -185,7 +192,7 @@ const AskMe = () => {
         <h2>Recommendations</h2>
         <div className={css.recommendations__body}>
           <h3>
-            Welcome to Green AI. Try some of the examples below to help you
+            Welcome to <span> Green AI</span>. Try some of the examples below to help you
             reduce your carbon footprint and make the world a better place.
           </h3>
 
@@ -194,7 +201,7 @@ const AskMe = () => {
               <div
                 onClick={() =>
                   handleBtn(
-                    "short and easy response - Where can I apply for carbon reduction grants in UK?"
+                    `Short and Easy response - Where can I apply for carbon reduction grants in ${location.country_name}?`
                   )
                 }
               >
@@ -203,14 +210,14 @@ const AskMe = () => {
                 </i>
                 <h4>Green Grants</h4>
                 <p>
-                  Where can I apply for carbon reduction grants in my local
-                  area?
+                  Where can I apply for carbon reduction grants in{" "}
+                  {location.country_name}?
                 </p>
               </div>
               <div
                 onClick={() =>
                   handleBtn(
-                    "Short and Easy response - Create a roadmap for me to create a Net Zero Emission building"
+                    "Easy response - Give me a roadmap for me to create a Net Zero Emission building"
                   )
                 }
               >
@@ -235,7 +242,7 @@ const AskMe = () => {
               <div
                 onClick={() =>
                   handleBtn(
-                    " Easy response - Can you recommend some good sources to provide information on zero net emission buildings"
+                    " Short and Easy response - Can you recommend some good sources to provide information on zero net emission buildings"
                   )
                 }
               >
