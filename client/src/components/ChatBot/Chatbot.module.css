@@ -196,3 +196,7 @@
   color: #919191;
   text-align: left;
 }
+
+.chatbot__recommendations span {
+  color: var(--EnvwiseColor);
+}

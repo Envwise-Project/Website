@@ -23,7 +23,7 @@ function PopUpMarket() {
   return (
     <div className={style.Container} data-dropdown>
       <div className={style.flexContainer}>
-        <Link to="/marketplace" className={style.button}>
+        <Link to="/comingsoon" className={style.button}>
           <div className={style.icon}>
             <IoGridOutline />
           </div>
@@ -45,7 +45,7 @@ function PopUpMarket() {
             <p>The ability to passively earn interest through DeFi 2.0 loans</p>
           </div>
         </div>
-        <a href="/IREO" className={style.button}>
+        <Link href="/IREO" className={style.button}>
           <div className={style.icon}>
             <TbVector />
           </div>
@@ -55,7 +55,7 @@ function PopUpMarket() {
             </div>
             <p>Join and be part of the new real estate projects</p>
           </div>
-        </a>
+        </Link>
         {/* <a href="/launchpad" className={style.button2}>
           <div className={style.icon}>
             <IoRocketSharp />
@@ -68,7 +68,7 @@ function PopUpMarket() {
           </div>
         </a> */}
 
-        <a className={style.buttonMore}>
+        <Link className={style.buttonMore}>
           <div className={style.icon}>
             <IoChevronDownOutline />
           </div>
@@ -77,7 +77,7 @@ function PopUpMarket() {
               <h1>More</h1> <IoArrowForward />
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );
