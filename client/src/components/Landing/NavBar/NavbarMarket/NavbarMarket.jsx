@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "./NavbarMarket.module.scss";
 import { useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   IoChevronDownOutline,
   IoGlobeOutline,
@@ -29,6 +29,18 @@ function NavbarMarket() {
   const [activeLanguage, setActiveLanguage] = useState(false);
   const screenWidth = window.innerWidth || document.body.clientWidth;
   const [userModal, setUserModal] = useState(false);
+  let admin = null;
+
+  if (user?.sub === import.meta.env.VITE_ADMIN_DEV1)
+    admin = import.meta.env.VITE_ADMIN_DEV1;
+  if (user?.sub === import.meta.env.VITE_ADMIN_DEV2)
+    admin = import.meta.env.VITE_ADMIN_DEV2;
+  if (user?.sub === import.meta.env.VITE_ADMIN_ALAN)
+    admin = import.meta.env.VITE_ADMIN_ALAN;
+  if (user?.sub === import.meta.env.VITE_ADMIN_LUIS)
+    admin = import.meta.env.VITE_ADMIN_LUIS;
+  if (user?.sub === import.meta.env.VITE_ADMIN_JAVVAD)
+    admin = import.meta.env.VITE_ADMIN_JAVVAD;
 
   const handleUserModal = () => {
     if (userModal) setUserModal(false);
@@ -139,10 +151,16 @@ function NavbarMarket() {
                           <h4>{user.name}</h4>
                           <p>Record of all transactions of the last 30 days</p>
                           <div className={style["userModal-btn"]}>
-                            <button>
-                              <img src={copyIcon} alt="Copy" />
-                              <p>Copy Address</p>
-                            </button>
+                            {admin ? (
+                              <Link to="./create" className={style.formBtn}>
+                                Admin Form
+                              </Link>
+                            ) : (
+                              <button>
+                                <img src={copyIcon} alt="Copy" />
+                                <p>Address</p>
+                              </button>
+                            )}
 
                             <button
                               onClick={() =>
@@ -234,10 +252,16 @@ function NavbarMarket() {
                   <h4>{user.name}</h4>
                   <p>Record of all transactions of the last 30 days</p>
                   <div className={style["userModal-btn"]}>
-                    <button>
-                      <img src={copyIcon} alt="Copy" />
-                      <p>Copy Address</p>
-                    </button>
+                    {admin ? (
+                      <Link to="./create" className={style.formBtn}>
+                        Admin Form
+                      </Link>
+                    ) : (
+                      <button>
+                        <img src={copyIcon} alt="Copy" />
+                        <p>Address</p>
+                      </button>
+                    )}
 
                     <button
                       onClick={() =>
