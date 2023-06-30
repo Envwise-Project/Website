@@ -4,8 +4,10 @@ import style from "./PopUpUser.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrency } from "../../../../../../redux/reducer";
 import { IoChevronDownOutline } from "react-icons/io5";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
-function PopUpUser() {
+function PopUpUser({ setActiveMenu }) {
   const screenWidth = window.innerWidth || document.body.clientWidth;
   const { currency, isAdmin } = useSelector((state) => state.reducerCompleto);
   const [active, setActive] = useState("null");
@@ -36,6 +38,21 @@ function PopUpUser() {
     "INR - ₹",
     "RUB - ₽",
   ];
+
+  const { logout, user } = useAuth0();
+  let admin = null;
+
+  if (user?.sub === import.meta.env.VITE_ADMIN_DEV1)
+    admin = import.meta.env.VITE_ADMIN_DEV1;
+  if (user?.sub === import.meta.env.VITE_ADMIN_DEV2)
+    admin = import.meta.env.VITE_ADMIN_DEV2;
+  if (user?.sub === import.meta.env.VITE_ADMIN_ALAN)
+    admin = import.meta.env.VITE_ADMIN_ALAN;
+  if (user?.sub === import.meta.env.VITE_ADMIN_LUIS)
+    admin = import.meta.env.VITE_ADMIN_LUIS;
+  if (user?.sub === import.meta.env.VITE_ADMIN_JAVVAD)
+    admin = import.meta.env.VITE_ADMIN_JAVVAD;
+
   return (
     <div className={style.container} data-menu>
       <div className={style.flexContainer}>
@@ -46,10 +63,17 @@ function PopUpUser() {
           <div className={style.buttons}>
             <a href="/">Home</a>
             <a href="/about">About us</a>
+            {admin ? (
+              <Link
+                to="./create"
+                className={style.formBtn}
+                onClick={() => setActiveMenu(false)}
+              >
+                Post your property
+              </Link>
+            ) : null}
             <a href="/contact">Contacts</a>
             <a>Notifications</a>
-            <a>Post your property</a>
-            <a>Post your project</a>
             <a>FAQ</a>
             {isAdmin ? <a href="/admin">Admin menu</a> : null}
             <div
@@ -95,9 +119,16 @@ function PopUpUser() {
         ) : (
           <div className={style.buttons}>
             <a>Notifications</a>
-            <a>Post your property</a>
-            <a>Post your project</a>
             <a>FAQ</a>
+            {admin ? (
+              <Link
+                to="./create"
+                className={style.formBtn}
+                onClick={() => setActiveMenu(false)}
+              >
+                Post your property
+              </Link>
+            ) : null}
             {isAdmin ? <a href="/admin">Admin menu</a> : null}
           </div>
         )}

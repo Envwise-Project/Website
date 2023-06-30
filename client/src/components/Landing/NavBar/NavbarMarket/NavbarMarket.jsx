@@ -185,7 +185,9 @@ function NavbarMarket() {
                     <IoPerson />
                   </div>
                 )}
-                {activeMenu ? <PopUpUser data-menu /> : null}
+                {activeMenu ? (
+                  <PopUpUser data-menu setActiveMenu={setActiveMenu} />
+                ) : null}
               </div>
             </div>
           </div>
