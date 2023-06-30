@@ -191,4 +191,8 @@ select:focus {
   .createForm__inputs .inputContainer {
     flex-direction: row;
   }
+  .inputContainer .drop {
+    height: 5.625rem;
+    padding: 1rem;
+  }
 }
