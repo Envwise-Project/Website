@@ -1,0 +1,33 @@
+.iconsbig {
+    display: flex;
+    justify-content: left;
+    margin-top: 1rem;
+  }
+  
+  .iconsbig div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    flex: 1;
+  }
+  
+  .iconsbig span {
+    display: inline-flex !important; 
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--EnvwiseColor);
+    padding: 5px;
+    font-size: 40px;
+  }
+  
+  .iconsbig p {
+    margin-top: 8px;
+    font-size: 11px;
+    max-width: 70px; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
