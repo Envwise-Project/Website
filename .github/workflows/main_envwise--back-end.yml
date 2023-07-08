@@ -53,6 +53,6 @@ jobs:
           app-name: 'Envwise--back-end'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F718D544D8D344EBA642A8BCC5CDC7FC }}
-          package: server
+          package: .
 
 
