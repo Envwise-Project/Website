@@ -71,6 +71,7 @@ const index = () => {
                 tokenised={land.Tokenised}
                 NFTPrice={land.NFTPrice}
                 AvailablesNFT={land.AvailablesNFT}
+                capital={land.capital}
               />
             ))
           : null}

@@ -4,7 +4,14 @@ import TableIncome from "./TableIncome";
 
 import { useState } from "react";
 
-const Financials = ({number, PRY, value, AvailablesNFT, NFTPrice}) => {
+const Financials = ({number, PRY, value, AvailablesNFT, NFTPrice, capital}) => {
+
+  const dividerStyle = {
+    borderBottom: "1px inset silver",
+    width: '30%', 
+    // margin: '0 auto', 
+    
+  }
 
     const [rangeValue, setRangeValue] = useState(40);
 
@@ -104,7 +111,7 @@ return (
                    </div>
 
 
-
+                   <div style={dividerStyle}></div>
            
                  <div className={style.row}>
                    <div className={style.cell}>
@@ -133,9 +140,44 @@ return (
                    <div className={style.cell}>
                    <span className={style.descriptiontabledif}>$ {passiveIncomePerMonth}</span>
                    </div>
-                 </div>                 
+                 </div>
 
-           </div>
+                 <div style={dividerStyle}></div>
+                 { capital  ? ( <>
+                                   <div className={style.row}>
+                                   <div className={style.cell}>
+                                     <span className={style.label}>Capital Repayment Duration:</span>
+                                   </div>
+                                   <div className={style.cell}>
+                                     <span className={style.descriptiontable}>{capital} years</span>
+                                   </div>
+                                 </div>
+
+                                 <div className={style.row}>
+                                   <div className={style.cell}>
+                                     <span className={style.label}>Capital Repayment per Token:</span>
+                                   </div>
+                                   <div className={style.cell}>
+                                     <span className={style.descriptiontable}>$ 0.42 / month </span>
+                                   </div>
+                                 </div>
+
+                                 <div className={style.row}>
+                                   <div className={style.cell}>
+                                     <span className={style.label}>Annual Capital Repayment:</span>
+                                   </div>
+                                   <div className={style.cell}>
+                                     <span className={style.descriptiontable}> $  5.00 </span>
+                                   </div>
+                                 </div>
+
+                                 </>
+                              )
+                            : null}  
+
+                              <div style={dividerStyle}></div>                 
+
+    </div>
 
 
            <div className={style.graphics}>

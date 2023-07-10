@@ -125,6 +125,7 @@ const Index = () => {
             map={land.map}
             more={land.more}
             description= {land.description}
+            capital={land.capital}
           />
         
 

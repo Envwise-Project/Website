@@ -12,7 +12,7 @@ import Icons from "./Buying/Icons"
 
 
 const Aboutproperty = (props) => {
-    const { more, map, image, number, address, location, PIT, PRY, AvailablesNFT, amenities, rooms, guests, value, Tokenised, NFTPrice, description } = props;
+    const { capital, more, map, image, number, address, location, PIT, PRY, AvailablesNFT, amenities, rooms, guests, value, Tokenised, NFTPrice, description } = props;
     
 
     const [activeTab, setActiveTab] = useState(1);
@@ -125,6 +125,7 @@ const Aboutproperty = (props) => {
               value={value}
               AvailablesNFT={AvailablesNFT}
               NFTPrice={NFTPrice}
+              capital={capital}
                             
             />
          </div>
