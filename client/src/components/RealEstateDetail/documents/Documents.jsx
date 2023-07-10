@@ -20,7 +20,7 @@ const Documents = () => {
            >
             <p className={style.download}>            
                  
-              <span style={{ display: 'inline-flex', alignItems: 'center',  marginLeft: '10px', marginRight: '5px', borderRadius: '50%', backgroundColor: '#F7931A',    padding: '5px'}}>
+              <span style={{ display: 'inline-flex', alignItems: 'center',  marginLeft: '10px', marginRight: '5px', borderRadius: '50%', backgroundColor: '#2ea828',    padding: '5px'}}>
                 <BsDownload />              
               </span>
               Download <b>Blueprint</b>
@@ -34,7 +34,7 @@ const Documents = () => {
              download="plano1.pdf"                  
            >
             <p className={style.download}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', marginLeft: '10px', marginRight: '5px', borderRadius: '50%', backgroundColor: '#F7931A',    padding: '5px'}}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', marginLeft: '10px', marginRight: '5px', borderRadius: '50%', backgroundColor: '#2ea828',    padding: '5px'}}>
                 <BsDownload />
               </span>
               Download <b>Title</b></p>
@@ -49,7 +49,7 @@ const Documents = () => {
            >
             <p className={style.download}
             >
-            <span style={{ display: 'inline-flex', alignItems: 'center', marginLeft: '10px', marginRight: '5px', borderRadius: '50%', backgroundColor: '#F7931A',    padding: '5px'}}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', marginLeft: '10px', marginRight: '5px', borderRadius: '50%', backgroundColor: '#2ea828',    padding: '5px'}}>
                 <BsDownload />
               </span>
               Download <b>Smart Contract</b></p>
