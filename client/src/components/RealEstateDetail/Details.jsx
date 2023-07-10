@@ -41,9 +41,10 @@ const Details = ({amenities, rooms, address, more, map }) => {
       <span className={style.descriptiontable}>{address}</span>
       <iframe
               src={map}
-              width="400"
-              height="250"
-              style={{ border: '0' }}
+              // width="400"
+              // height="250"
+              // style={{ border: '0' }}
+              className={style.map}
               allowFullScreen
               loading="lazy"
               title="Map">

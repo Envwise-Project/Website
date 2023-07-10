@@ -60,12 +60,27 @@ const Index = () => {
 
   return !isLoading && isAuthenticated ? (
     <div className={css.details}>
+   
+
+
+      <header className={css.header}>
+        <h2>{land.address}</h2>
+        <div className={css.headerText}>
+          <p>{land.location}</p>
+          {/* <div className={css.headerBtns}>
+            <img src={sharePC} alt="share" />
+            <img src={save} alt="save" />
+          </div> */}
+        </div>
+        {/* <img src={avatar} alt="Person" className={css.avatar} /> */}
+      </header>
+      
       <img src={land.image} alt="Land" className={css.detailsImage} />
-      <div className={css.navMobile}>
+      {/* <div className={css.navMobile}>
         <img
           src={backIcon}
           alt="back icon"
-          onClick={() => navigate("/realestate")}
+          onClick={() => navigate("/marketplace")}
         />
         <div className={css.navMobileItems}>
           <div>
@@ -77,20 +92,7 @@ const Index = () => {
             <p>Like</p>
           </div>
         </div>
-      </div>
-
-      <header className={css.header}>
-        <h2>{land.location}</h2>
-        <div className={css.headerText}>
-          <p>{land.address}</p>
-          <div className={css.headerBtns}>
-            <img src={sharePC} alt="share" />
-            <img src={save} alt="save" />
-          </div>
-        </div>
-        {/* <img src={avatar} alt="Person" className={css.avatar} /> */}
-      </header>
-      
+      </div> */}
 
       <section className={css.mosaic}>
         <img src={land.image} alt="" />

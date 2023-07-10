@@ -14,7 +14,8 @@ $--bc: #2ea828;;
 
   @media screen and (max-width: 767px) {
     /* Estilos para dispositivos móviles */
-    display: none;
+    // justify-content: center;
+    
 
   }
   
@@ -40,6 +41,13 @@ $--bc: #2ea828;;
   // height: 2rem;
   // align-items: center;
   // justify-items: stretch;
+
+  @media screen and (max-width: 767px) {
+    /* Estilos para dispositivos móviles */
+    width: 350px;
+    flex-direction: column;   
+    align-items: center;
+  }
 }
 
 .about{
@@ -53,7 +61,8 @@ text-align: left;
 
 @media screen and (max-width: 767px) {
   /* Estilos para dispositivos móviles */
-text-align: center;
+text-align: left;
+margin-left: 3rem;
 
 }
 }
@@ -99,7 +108,7 @@ text-align: center;
     text-transform: uppercase;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
-    
+
 }
 .tab:hover{
   border-bottom: 2px solid $primary-color;
@@ -144,6 +153,12 @@ text-align: center;
   display: table-row;
   height: fit-content;
   margin-bottom: 1rem; 
+
+  @media screen and (max-width: 767px) {
+    display: block;
+    // text-align: center;
+     
+  }
 
 
   // ------------------------------ PROGRESS FUNDED BAR ----------------------------------------
@@ -277,6 +292,11 @@ input[type="range"]::-ms-track {
   display: table-cell;
   height: fit-content;
   // margin-right: 2rem;
+
+  @media screen and (max-width: 767px) {
+    display: block;
+     
+  }
   
 }
 
@@ -337,7 +357,14 @@ input[type="range"]::-ms-track {
   width: 90%;
   height: 300px;
   margin-top: 1rem;
-  margin-left: 3rem;
+ 
+
+  @media screen and (max-width: 767px) {
+    height: 180px !important;
+    width: 280px !important;     
+    margin-top: .5rem;
+    margin-left:0rem;
+  }
 }
 
 .download {
@@ -360,6 +387,10 @@ input[type="range"]::-ms-track {
 
 .graphics{
   width: 100%;
+  
+  @media screen and (max-width: 767px) {
+    width: 70%;
+  }
 }
 
 .graphic1{
@@ -537,6 +568,11 @@ display: none;
   // margin: 1rem;
   justify-content: left;
   margin-top: 1rem;
+
+  @media screen and (max-width: 767px) {
+    /* Estilos para dispositivos móviles */
+   margin-left: 2.8rem;    
+  }
 }
 
 .iconsbig div {
