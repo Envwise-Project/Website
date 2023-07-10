@@ -30,7 +30,12 @@ sidebar_position: 1
 - **Framer Motion**: Framer Motion is a library that provides a simple and powerful animation API for React applications. It allows you to add motion and animation effects to your user interface.
     
 - **React Router DOM**: React Router DOM is a library that provides routing capabilities to your React application. It allows you to define different routes and navigate between them.
-    
+
+- **React Icons**: React Icons is a library that provides a set of popular icon packs as React components. It allows you to easily add icons to your React application.
+
+- **React Data Table**: React Data Table is a library that provides a set of components for displaying and managing tabular data in a React application. It offers features like sorting, filtering, and pagination to enhance data presentation
+
+- **React Chart JS**: React ChartJs is a wrapper library for Chart.js, which is a popular JavaScript library for creating interactive charts and graphs. React ChartJs allows you to use Chart.js functionalities as React components, making it easier to integrate charts into your React application.
 
   
 
