@@ -3,6 +3,7 @@ const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 
+/*
 const sequelize = new Sequelize(
   process.env.DATABASE_URL,
   {
@@ -10,6 +11,20 @@ const sequelize = new Sequelize(
     dialect: 'postgres',
   }
 );
+*/
+
+const { AZURE_POSTGRESQL_HOST, AZURE_POSTGRESQL_PORT, AZURE_POSTGRESQL_DATABASE, AZURE_POSTGRESQL_USER, AZURE_POSTGRESQL_PASSWORD } = process.env;
+
+const sequelize = new Sequelize({
+  host: AZURE_POSTGRESQL_HOST,
+  port: AZURE_POSTGRESQL_PORT,
+  database: AZURE_POSTGRESQL_DATABASE,
+  username: AZURE_POSTGRESQL_USER,
+  password: AZURE_POSTGRESQL_PASSWORD,
+  dialect: 'postgres',
+  logging: false,
+  native: false,
+});
 
 const basename = path.basename(__filename);
 
