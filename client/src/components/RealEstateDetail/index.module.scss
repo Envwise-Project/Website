@@ -14,6 +14,13 @@
   }
   
 }
+.details img {
+  @media screen and (max-width: 767px) {
+    /* Estilos para dispositivos móviles */
+    margin-bottom: 1rem;
+
+  }
+}
 .buycontainer {
     position: fixed;
     top: 40%;
@@ -108,6 +115,10 @@
   padding-bottom: 0.5rem;
   gap: 0.5rem;
   position: relative;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: .5rem;
+  }
 }
 
 .header h2 {
