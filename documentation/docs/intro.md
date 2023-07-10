@@ -91,14 +91,14 @@ In [ChatBot.jsx](https://github.com/Envwise-Project/Website/blob/main/client/src
 
 We use React and Axios to create the connection with ChatGPT. Within it, we have the option to add previous information to the chat, and we also limit the number of tokens to avoid long responses.
 
-### MARKETPLACE 
-## Real States 
+## MARKETPLACE 
+# Real States 
 
 The data is currently being sourced from a JSON file, serving as a 'fake database.' The main entry point is the `index.jsx` file, responsible for rendering a series of preview cards (using the 'Card Preview' component).
 
 The `Card Preview` component serves as a child component, responsible for rendering each property's data, including its images.
 
-## Real States Detail
+# Real States Detail
 
 The `Real States Detail` module is designed with modularity in mind to ensure code clarity. It consists of the following files and components:
 
