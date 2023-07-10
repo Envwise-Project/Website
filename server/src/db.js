@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
 );
 */
 
-const { AZURE_POSTGRESQL_HOST, AZURE_POSTGRESQL_PORT, AZURE_POSTGRESQL_DATABASE, AZURE_POSTGRESQL_USER, AZURE_POSTGRESQL_PASSWORD } = process.env;
+const { AZURE_POSTGRESQL_HOST, AZURE_POSTGRESQL_PORT, AZURE_POSTGRESQL_DATABASE, AZURE_POSTGRESQL_USER, AZURE_POSTGRESQL_PASSWORD, AZURE_POSTGRESQL_SSL } = process.env;
 
 const sequelize = new Sequelize({
   host: AZURE_POSTGRESQL_HOST,
@@ -24,6 +24,10 @@ const sequelize = new Sequelize({
   dialect: 'postgres',
   logging: false,
   native: false,
+  ssl: AZURE_POSTGRESQL_SSL,
+  dialectOptions: {
+    encrypt: true
+  }
 });
 
 const basename = path.basename(__filename);
