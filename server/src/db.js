@@ -25,9 +25,6 @@ const sequelize = new Sequelize({
   logging: false,
   native: false,
   ssl: AZURE_POSTGRESQL_SSL,
-  dialectOptions: {
-    encrypt: true
-  }
 });
 
 const basename = path.basename(__filename);
