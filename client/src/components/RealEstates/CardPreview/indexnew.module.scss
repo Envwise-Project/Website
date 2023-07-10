@@ -318,8 +318,8 @@ line-height: 20px;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  gap: 4px;
-  width: 719px;
+  gap: auto;
+  width: 100%;
 
   @media (max-width: 768px) {
     display: flex;
