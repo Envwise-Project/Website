@@ -3,7 +3,7 @@ import ModalFilter from "../MarketPlace/ModalFilter/ModalFilter.jsx";
 import css from "./index.module.scss";
 import db from "../RealEstates/fakedb/db.json";
 import CardPreview from "./CardPreview";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading.jsx";
@@ -27,22 +27,53 @@ const index = () => {
     }
   }, [navigate, isAuthenticated, isLoading]);
 
+
+  const [rentalYield, setRentalYield] = useState(0); // Estado para almacenar el valor del filtrado
+
+  const handleRentalYieldChange = (event) => {
+    setRentalYield(Number(event.target.value));
+  };
+
+  
   return !isLoading && isAuthenticated ? (
     <div className={css.container}>
       <Classes />
       <div className={css.filtersContainer}>
-        <h2></h2>
+       
         <div className={css.filters}>
           <div className={css.filtersSelect}>
             <select>
               <option hidden value="">
-                Status
+                Finance Type
               </option>
-              <option className={css.option}>Buy now</option>
-              <option>Not for sale</option>
+              <option className={css.option}>Passive Income Only</option>
+              <option>Capital Rep. + Passive Income</option>
             </select>
           </div>
-          <ModalFilter />
+
+          <div className={css.sliderContainer}>
+        <label htmlFor="rentalYieldSlider">Projected Rental Yield: {rentalYield}%</label>
+        <input
+          type="range"
+          id="rentalYieldSlider"
+          min={0}
+          max={100}
+          value={rentalYield}
+          onChange={handleRentalYieldChange}
+        />
+      </div>
+
+          <div className={css.filtersSelect}>
+            <select>
+              <option hidden value="">
+                Location
+              </option>
+              <option className={css.option}>USA</option>
+              <option>UK</option>
+            </select>
+          </div>
+
+          {/* <ModalFilter /> */}
         </div>
       </div>
 

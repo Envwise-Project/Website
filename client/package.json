@@ -48,6 +48,7 @@
     "react-google-forms-hooks": "^1.2.4",
     "react-icons": "^4.7.1",
     "react-images-uploading": "^3.1.7",
+    "react-range": "^1.8.14",
     "react-redux": "^8.0.5",
     "react-responsive": "^9.0.2",
     "react-responsive-carousel": "^3.2.23",

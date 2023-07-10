@@ -27,6 +27,10 @@ const Financials = ({number, PRY, value, AvailablesNFT, NFTPrice, capital}) => {
     const passiveIncomePerYear = ((investment*PRY)).toFixed(2);
     const passiveIncomePerMonth = (passiveIncomePerYear / 12).toFixed(2);
     console.log(passiveIncomePerMonth)
+    const capitalrepaymentpertoken = NFTPrice/capital;
+    const monthlycapitalrepayment = (capitalrepaymentpertoken/12).toFixed(2)
+    const anualcapitalrepayment = capitalrepaymentpertoken * rangeValue
+  
  
 
 return (
@@ -158,7 +162,7 @@ return (
                                      <span className={style.label}>Capital Repayment per Token:</span>
                                    </div>
                                    <div className={style.cell}>
-                                     <span className={style.descriptiontable}>$ 0.42 / month </span>
+                                     <span className={style.descriptiontable}>$ {monthlycapitalrepayment} / month </span>
                                    </div>
                                  </div>
 
@@ -167,7 +171,7 @@ return (
                                      <span className={style.label}>Annual Capital Repayment:</span>
                                    </div>
                                    <div className={style.cell}>
-                                     <span className={style.descriptiontable}> $  5.00 </span>
+                                     <span className={style.descriptiontable}> $  {anualcapitalrepayment} </span>
                                    </div>
                                  </div>
 

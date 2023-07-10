@@ -2,27 +2,47 @@
   width: 100%;
   font-family: var(--EnvwiseFont);
   padding-bottom: 6rem;
+  // justify-content: center;
+  // align-items: center;
 }
 
-.container h2 {
-  color: #515562;
-  text-align: left;
-  font-family: var(--EnvwiseFont);
+// .container h2 {
+//   color: #515562;
+//   text-align: left;
+//   font-family: var(--EnvwiseFont);
 
-  padding: 0 1.2rem;
+//   padding: 0 1.2rem;
+// }
+
+.filtersContainer {
+  display: flex;
+  flex-direction: column !important;
 }
+
 
 .filters {
   display: flex;
-  padding: 0 1.2rem;
+  // padding: 0 1.2rem;
+  flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  justify-items: center;
+  height: auto;
+  width: 100%;
   padding: 2rem 0;
+
+  @media (max-width: 720px){
+    flex-direction: column;
+  }
+    
+  
 }
+
 
 .filtersSelect {
   flex: 1;
+  width: 200px;
 }
 
 .filters select {
@@ -36,8 +56,13 @@
   font-weight: 500;
   height: 40px;
   line-height: 21px;
-  width: 100%;
+  width: 60%;
   padding: 0 1rem;
+
+  @media (max-width: 720px){
+    width: 100%;
+  }
+    
 }
 
 .filters select:focus {
@@ -52,22 +77,47 @@
   font-family: var(--EnvwiseFont);
 }
 
-@media (min-width: 730px) {
-  .filtersContainer {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
+.sliderContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .filtersSelect {
-    width: 180px;
-  }
-
-  .filters {
-    gap: 1.5rem;
-  }
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid #e6e8ec;
+  color: #23262f;
+  font-family: var(--EnvwiseFont);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  height: 40px;
+  line-height: 21px;
+  width: fit-content;
+  padding: 0 1rem;
 }
+
+// .sliderContainer input[type="range"]::-webkit-slider-thumb {
+//   background-color: rgb(88, 93, 88); /* Cambia "blue" al color deseado */
+//   border: .2px solid blue;
+// }
+
+// @media (min-width: 730px) {
+
+//   .filtersContainer {
+//     align-items: center;
+//     display: flex;
+//     justify-content: space-between;
+//     width: 100%;
+//   }
+
+//   .filtersSelect {
+//     width: 180px;
+//   }
+
+//   .filters {
+//     gap: 1.5rem;
+//   }
+// }
 
 @media (min-width: 1250px) {
   .filtersContainer {

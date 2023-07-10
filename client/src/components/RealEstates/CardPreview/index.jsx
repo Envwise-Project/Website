@@ -61,7 +61,7 @@ const Index = (props) => {
 
           <div className={style.description}>
             <p>Pasive Income per Token: ${PIT} </p>
-            <p>Projected Rental Yield: ${PRY}</p>
+            <p>Projected Rental Yield: {PRY} % </p>
             <p> Property Tokenised: {tokenised}%</p>
             {capital ? (
               <p>Capital Repayment Duration: {capital} years</p>
@@ -73,6 +73,7 @@ const Index = (props) => {
           <div className={style.nfts}>
           <p>NFT Price: <span>{NFTPrice}</span> ·</p>
           <p>Available NFTs:<span>{AvailablesNFT}</span></p>   
+          
 
           </div>
       
