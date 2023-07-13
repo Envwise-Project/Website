@@ -1,0 +1,49 @@
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .h2{
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+  
+    .card-actions {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #eab721;
+      }
+      
+      .checkboxContainer {
+        display: flex;
+        align-items: center;
+        
+      }
+      
+      .checkbox {
+        margin-right: 8px;
+      }
+    
+      .checkboxLabel{
+        color: #000;
+        font-family: Inter;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+        margin-left: 1rem;
+      }
+    
+      
+}
+  

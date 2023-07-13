@@ -33,84 +33,108 @@ import Historic from './assets/Historic.svg'
 const InfoClasses =
     [
         {
-            'name': 'Amazing Pools',
-            'img': AmazingPools
+            'name': 'Industrial',
+            'img': Design
         },
+        {
+            'name': 'Comercial',
+            'img': Novelty
+        },
+        {
+            'name': 'Farm houses',
+            'img': Rural
+        }, {
+            'name': 'Hotels',
+            'img': Particular
+        }, 
+        {
+            'name': 'Agriculture',
+            'img': Vineyards
+        }, 
+        {
+            'name': 'Help Ukraine',
+            'img': Isolated
+        },
+
         {
             'name': 'Popular',
             'img': Popular
         },
-        {
-            'name': 'Novelty',
-            'img': Novelty
-        }, {
-            'name': 'Cottage',
+ {
+            'name': 'Residential',
             'img': Cottage
-        }, {
-            'name': 'Incredible Views',
-            'img': IncredibleViews
-        }, {
-            'name': 'castles',
-            'img': Castle
-        }, {
-            'name': 'beach front',
-            'img': BeachFront
-        }, {
+        }, 
+        {
+            'name': 'Green / Sustainable',
+            'img': Islands
+        }, 
+        // {
+        //     'name': 'Incredible Views',
+        //     'img': IncredibleViews
+        // }, 
+        // {
+        //     'name': 'castles',
+        //     'img': Castle
+        // }, 
+        // {
+        //     'name': 'beach front',
+        //     'img': BeachFront
+        // }, 
+        {
             'name': 'Department',
             'img': Department
-        }, {
+        }, 
+        {
             'name': 'mansions',
             'img': Mansions
-        }, {
-            'name': 'Tropical',
-            'img': Tropical
-        }, {
-            'name': 'domes',
-            'img': Domes
-        }, {
-            'name': 'impressive',
-            'img': Impressive
-        }, {
-            'name': 'alpine houses',
-            'img': Alpine
-        }, {
-            'name': 'tiny houses',
-            'img': TinyHouses
-        }, {
-            'name': 'underground houses',
-            'img': Underground
-        }, {
-            'name': 'Rural houses',
-            'img': Rural
-        }, {
-            'name': 'Particular houses',
-            'img': Particular
-        }, {
-            'name': 'Luxury',
-            'img': Luxury
-        }, {
-            'name': 'islands',
-            'img': Islands
-        }, {
-            'name': 'Floating houses',
-            'img': Floating
-        }, {
-            'name': 'Design',
-            'img': Design
-        }, {
-            'name': 'vineyards',
-            'img': Vineyards
-        }, {
+        }, 
+        // {
+        //     'name': 'Tropical',
+        //     'img': Tropical
+        // }, 
+        // {
+        //     'name': 'domes',
+        //     'img': Domes
+        // }, 
+        // {
+        //     'name': 'impressive',
+        //     'img': Impressive
+        // }, 
+        // {
+        //     'name': 'alpine houses',
+        //     'img': Alpine
+        // }, 
+        // {
+        //     'name': 'tiny houses',
+        //     'img': TinyHouses
+        // }, 
+        // {
+        //     'name': 'underground houses',
+        //     'img': Underground
+        // }, 
+        // {
+        //     'name': 'Luxury',
+        //     'img': Luxury
+        // }, 
+
+        // {
+        //     'name': 'Boat Houses',
+        //     'img': Floating
+        // }, 
+        {
+            'name': 'Amazing Pools',
+            'img': AmazingPools
+        },
+
+        {
             'name': 'lakefront',
             'img': Lakefronts
-        }, {
-            'name': 'Isolated',
-            'img': Isolated
-        }, {
+        }, 
+         {
             'name': 'farms',
             'img': Farms
         }, {
-            'name': 'Lake',
+            'name': 'Boat Houses',
             'img': Lake
         }, {
             'name': 'Golf',

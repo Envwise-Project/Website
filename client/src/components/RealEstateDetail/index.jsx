@@ -12,7 +12,7 @@ import sharePC from "../../assets/share--pc.svg";
 import save from "../../assets/save.svg";
 import showAll from "../../assets/showAll.svg";
 import ModalFilter from "../MarketPlace/ModalFilter/ModalFilter.jsx";
-import CardPreview from "./CardPreviewDetails.jsx";
+
 import Aboutproperty from "./Aboutproperty";
 import Buy from "./Buy";
 import Loading from "../Loading/Loading";
@@ -40,34 +40,47 @@ const Index = () => {
     }
   }, [navigate, isAuthenticated, isLoading]);
 
-  const [sticky, setSticky] = useState(false);
+
+
+  
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const threshold = 200; // Punto de desplazamiento donde se fija el componente
-
-      if (scrollPosition > threshold) {
-        setSticky(true);
-      } else {
-        setSticky(false);
-      }
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      setIsScrolled(scrollTop > 120);
     };
-    window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+
+
 
   return !isLoading && isAuthenticated ? (
     <div className={css.details}>
+   
+
+
+      <header className={css.header}>
+        <h2>{land.address}</h2>
+        <div className={css.headerText}>
+          <p>{land.location}</p>
+          {/* <div className={css.headerBtns}>
+            <img src={sharePC} alt="share" />
+            <img src={save} alt="save" />
+          </div> */}
+        </div>
+        {/* <img src={avatar} alt="Person" className={css.avatar} /> */}
+      </header>
+      
       <img src={land.image} alt="Land" className={css.detailsImage} />
-      <div className={css.navMobile}>
+      {/* <div className={css.navMobile}>
         <img
           src={backIcon}
           alt="back icon"
-          onClick={() => navigate("/realestate")}
+          onClick={() => navigate("/marketplace")}
         />
         <div className={css.navMobileItems}>
           <div>
@@ -79,19 +92,7 @@ const Index = () => {
             <p>Like</p>
           </div>
         </div>
-      </div>
-
-      <header className={css.header}>
-        <h2>{land.location}</h2>
-        <div className={css.headerText}>
-          <p>{land.address}</p>
-          <div className={css.headerBtns}>
-            <img src={sharePC} alt="share" />
-            <img src={save} alt="save" />
-          </div>
-        </div>
-        <img src={avatar} alt="Person" className={css.avatar} />
-      </header>
+      </div> */}
 
       <section className={css.mosaic}>
         <img src={land.image} alt="" />
@@ -103,17 +104,11 @@ const Index = () => {
         </div>
       </section>
 
+      
+
+
       <div className={css.info}>
-        <h2>Entire rental unit hosted by Ghazal</h2>
-
-        <p className=" text-xl text-left mt-3 mb-[-1rem]">ABOUT THE PROPERTY</p>
-        <p className={css.description}>
-          {land.description} <br />{" "}
-        </p>
-      </div>
-
-      <div className="flex w-full  ">
-        <div className="flex-grow">
+             
           <Aboutproperty
             id={land.id}
             image={land.image}
@@ -131,12 +126,12 @@ const Index = () => {
             guests={land.guests}
             map={land.map}
             more={land.more}
+            description= {land.description}
+            capital={land.capital}
           />
-        </div>
+        
 
-        <div
-          className={`fixed bottom-[-16rem] right-16 ${sticky ? "sticky" : ""}`}
-        >
+        <div className={isScrolled ? css.buycontainer : ''}>
           <Buy
             id={land.id}
             image={land.image}

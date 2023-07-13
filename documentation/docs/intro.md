@@ -30,7 +30,12 @@ sidebar_position: 1
 - **Framer Motion**: Framer Motion is a library that provides a simple and powerful animation API for React applications. It allows you to add motion and animation effects to your user interface.
     
 - **React Router DOM**: React Router DOM is a library that provides routing capabilities to your React application. It allows you to define different routes and navigate between them.
-    
+
+- **React Icons**: React Icons is a library that provides a set of popular icon packs as React components. It allows you to easily add icons to your React application.
+
+- **React Data Table**: React Data Table is a library that provides a set of components for displaying and managing tabular data in a React application. It offers features like sorting, filtering, and pagination to enhance data presentation
+
+- **React Chart JS**: React ChartJs is a wrapper library for Chart.js, which is a popular JavaScript library for creating interactive charts and graphs. React ChartJs allows you to use Chart.js functionalities as React components, making it easier to integrate charts into your React application.
 
   
 
@@ -85,3 +90,27 @@ Libraries: React, Axios
 In [ChatBot.jsx](https://github.com/Envwise-Project/Website/blob/main/client/src/components/ChatBot/ChatBot.jsx):
 
 We use React and Axios to create the connection with ChatGPT. Within it, we have the option to add previous information to the chat, and we also limit the number of tokens to avoid long responses.
+
+## MARKETPLACE 
+
+### **Real States** 
+
+The data is currently being sourced from a JSON file, serving as a 'fake database.' The main entry point is the `index.jsx` file, responsible for rendering a series of preview cards (using the 'Card Preview' component).
+
+The `Card Preview` component serves as a child component, responsible for rendering each property's data, including its images.
+
+ ### **Real States Detail**
+
+The `Real States Detail` module is designed with modularity in mind to ensure code clarity. It consists of the following files and components:
+
+- `index.jsx`: This component acts as the parent component and receives properties from the aforementioned JSON file. It displays the data in two distinct components, namely `AboutProperty` and `Buy`.
+
+- `Buy.jsx`: This component is responsible for displaying the information in a floating window that remains constantly visible. It also includes a button to facilitate property purchase.
+
+- `AboutProperty.jsx`: This component displays detailed information about the property. It further renders the following components:
+  - `Detail.jsx`
+  - `Financials.jsx` --> This component includes both charts and tables related to property financials. 
+  The charts are implemented using Chart.js (in GraphicIncome.jsx), a popular JavaScript library for creating interactive charts and graphs. The tables are implemented using DataTable (in Tableincome.jsx), a library for displaying and managing tabular data in a React application.
+  - `Documents.jsx`
+
+

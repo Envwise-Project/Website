@@ -2,18 +2,30 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_HOST, DB_PORT, DB_DATABASE, DB_USER, DB_PASSWORD } = process.env;
+
+/*
+const sequelize = new Sequelize(
+  process.env.DATABASE_URL,
+  {
+    host: process.env.PGHOST,
+    dialect: 'postgres',
+  }
+);
+*/
+const { AZURE_POSTGRESQL_HOST, AZURE_POSTGRESQL_PORT, AZURE_POSTGRESQL_DATABASE, AZURE_POSTGRESQL_USER, AZURE_POSTGRESQL_PASSWORD, AZURE_POSTGRESQL_SSL } = process.env;
 
 const sequelize = new Sequelize({
-  host: DB_HOST,
-  port: DB_PORT,
-  database: DB_DATABASE,
-  username: DB_USER,
-  password: DB_PASSWORD,
+  host: AZURE_POSTGRESQL_HOST,
+  port: AZURE_POSTGRESQL_PORT,
+  database: AZURE_POSTGRESQL_DATABASE,
+  username: AZURE_POSTGRESQL_USER,
+  password: AZURE_POSTGRESQL_PASSWORD,
   dialect: 'postgres',
   logging: false,
   native: false,
+  ssl: AZURE_POSTGRESQL_SSL,
 });
+
 
 const basename = path.basename(__filename);
 

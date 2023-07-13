@@ -89,6 +89,12 @@
   width: 100%;
 }
 
+.createForm__inputs .error {
+  color: red;
+  font-size: 0.70rem;
+  opacity: .9;
+}
+
 .createForm__inputs div {
   align-items: flex-start;
   display: flex;
