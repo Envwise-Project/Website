@@ -1,7 +1,13 @@
-const SelectCodeArea = () => {
+const SelectCodeArea = ({ onChange, propertyData }) => {
   return (
-    <select>
-      <option data-countryCode="GB" value="44" Selected>
+    <select
+      value={ propertyData.ownerData.Code_area }
+      onChange={(e) => {
+        onChange("Code_area", e.target.value);
+      }}
+    >
+      <option value="">Select</option>
+      <option data-countryCode="GB" value="44">
         UK (+44)
       </option>
       <option data-countryCode="US" value="1">

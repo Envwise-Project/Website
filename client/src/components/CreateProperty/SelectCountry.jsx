@@ -1,9 +1,12 @@
-const SelectCountry = () => {
+const SelectCountry = ({ onChange, propertyData, form }) => {
   return (
-    <select defaultValue="selected">
-      <option value="selected" disabled>
-        Select
-      </option>
+    <select
+      value={ form === "featureData" ? (propertyData.featureData.Country) : (propertyData.ownerData.Country)}
+      onChange={(e) => {
+        onChange("Country", e.target.value);
+      }}
+    >
+      <option value="">Select</option>
       <option value="Afghanistan">Afghanistan</option>
       <option value="Åland Islands">Åland Islands</option>
       <option value="Albania">Albania</option>
