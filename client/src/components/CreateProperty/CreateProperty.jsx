@@ -34,15 +34,15 @@ const CreateProperty = () => {
     Postal_Code: "",
     Description: "",
     Square_foot: "",
-    Mortgage: "",
     Amenities: "",
     Rooms: "",
     Occupancy_Status: "",
-    Link_Image_BLOB: "",
+    Link_Image: "",
     Link_Document: "",
     Current_Emission: "",
     Expected_Emission_Level: "",
     More: "",
+    Mortgage: "",
   });
 
   const [financialData, setFinancialData] = useState({
