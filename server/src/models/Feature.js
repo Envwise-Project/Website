@@ -72,9 +72,6 @@ module.exports = (sequelize) => {
       More: {
         type: DataTypes.STRING(100),
       },
-      Mortgage: {
-        type: DataTypes.DECIMAL(10,2),
-      }
     },
     {
       tableName: "Feature",

@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
-      Investement_type: {
+      Investment_type: {
         type: DataTypes.STRING(50),
         allowNull: false,
       },
@@ -44,6 +44,9 @@ module.exports = (sequelize) => {
       Capital_payment_duration: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
+      },
+      Mortgage: {
+        type: DataTypes.DECIMAL(10, 2),
       },
     },
     {
