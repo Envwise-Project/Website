@@ -6,6 +6,7 @@ import Loading from "../Loading/Loading.jsx";
 import OwnerForm from "./OwnerForm";
 import PropertyForm from "./PropertyForm";
 import FinancialForm from "./FinancialForm";
+const serverURL = import.meta.env.VITE_SERVER_URL;
 
 const CreateProperty = () => {
   const [currentForm, setCurrentForm] = useState(1);
@@ -141,7 +142,7 @@ const CreateProperty = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:3000/properties", {
+      const response = await fetch(serverURL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -150,11 +151,9 @@ const CreateProperty = () => {
       });
 
       if (response.ok) {
-        // El POST se realizó con éxito
         alert("Request sent successfully!");
         console.log(property);
       } else {
-        // Error al realizar el POST
         alert("Error sending the request.");
       }
     } catch (error) {
