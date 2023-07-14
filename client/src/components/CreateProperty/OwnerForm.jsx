@@ -11,10 +11,10 @@ const OwnerForm = ({ handleSubmit, onNext, onChange, propertyData }) => {
     const errors = {};
     const onlyLetters = /^[A-Za-z]+$/;
 
-    if (!propertyData.ownerData.FirstName) {
-      errors.FirstName = "First Name is required";
-    } else if (!onlyLetters.test(propertyData.ownerData.FirstName)) {
-      errors.FirstName = "First Name should contain only letters";
+    if (!propertyData.ownerData.Firstname) {
+      errors.Firstname = "First Name is required";
+    } else if (!onlyLetters.test(propertyData.ownerData.Firstname)) {
+      errors.Firstname = "First Name should contain only letters";
     }
 
     if (!propertyData.ownerData.Surname) {
@@ -90,13 +90,13 @@ const OwnerForm = ({ handleSubmit, onNext, onChange, propertyData }) => {
             <label>First Name</label>
             <input
               type="text"
-              value={propertyData.ownerData.FirstName}
+              value={propertyData.ownerData.Firstname}
               onChange={(e) => {
-                onChange("FirstName", e.target.value.trim());
+                onChange("Firstname", e.target.value.trim());
               }}
             />
-            {formErrors.FirstName && (
-              <p className={css.error}>{formErrors.FirstName}</p>
+            {formErrors.Firstname && (
+              <p className={css.error}>{formErrors.Firstname}</p>
             )}
           </div>
           <div>

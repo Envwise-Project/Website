@@ -93,6 +93,7 @@
   color: red;
   font-size: 0.70rem;
   opacity: .9;
+  text-align: left;
 }
 
 .createForm__inputs div {
