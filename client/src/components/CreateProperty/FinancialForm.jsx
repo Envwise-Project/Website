@@ -15,6 +15,20 @@ const FinancialForm = ({ handleSubmit, onBack, onChange, propertyData }) => {
     ) {
       errors.Market_value_of_the_property =
         "Market Value of the property is required";
+    } else if (
+      propertyData.financialData.Market_value_of_the_property -
+        propertyData.financialData.Mortgage <=
+      0
+    ) {
+      errors.Market_value_of_the_property =
+        "The mortgage amount cannot be greater than the property value.";
+    }
+
+    if (
+      !propertyData.financialData.Mortgage ||
+      propertyData.financialData.Mortgage < 0
+    ) {
+      errors.Mortgage = "Mortgage is required";
     }
 
     if (!propertyData.financialData.Investment_type) {
@@ -191,6 +205,20 @@ const FinancialForm = ({ handleSubmit, onBack, onChange, propertyData }) => {
         </div>
 
         <div className={css.inputContainer}>
+          <div>
+            <label>Mortgage</label>
+            <input
+              type="number"
+              value={propertyData.financialData.Mortgage}
+              onChange={(e) => {
+                onChange("Mortgage", e.target.value);
+              }}
+            />
+            {formErrors.Mortgage && (
+              <p className={css.error}>{formErrors.Mortgage}</p>
+            )}
+          </div>
+
           <div>
             <label>Percent of property tokenized</label>
             <input

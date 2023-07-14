@@ -19,8 +19,10 @@ const PropertyForm = ({
     const errors = {};
     const onlyLetters = /^[A-Za-z\s]+$/;
 
-
-    if (!propertyData.featureData.Square_foot || propertyData.featureData.Square_foot < 1) {
+    if (
+      !propertyData.featureData.Square_foot ||
+      propertyData.featureData.Square_foot < 1
+    ) {
       errors.Square_foot = "Square Foot is required";
     }
 
@@ -56,7 +58,7 @@ const PropertyForm = ({
       errors.Occupancy_Status = "Occupancy Status is required";
     }
 
-    if (!propertyData.featureData.Rooms ||  propertyData.featureData.Rooms < 0) {
+    if (!propertyData.featureData.Rooms || propertyData.featureData.Rooms < 0) {
       errors.Rooms = "Rooms is required";
     }
 
@@ -64,19 +66,21 @@ const PropertyForm = ({
       errors.Amenities = "Amenities are required";
     }
 
-    if (!propertyData.featureData.Mortgage || propertyData.featureData.Mortgage < 0) {
-      errors.Mortgage = "Mortgage is required";
-    }
-
     if (!propertyData.featureData.Description.trim()) {
       errors.Description = "Description is required";
     }
 
-    if (!propertyData.featureData.Current_Emission || propertyData.featureData.Current_Emission < 0) {
+    if (
+      !propertyData.featureData.Current_Emission ||
+      propertyData.featureData.Current_Emission < 0
+    ) {
       errors.Current_Emission = "Current Emission is required";
     }
 
-    if (!propertyData.featureData.Expected_Emission_Level || propertyData.featureData.Expected_Emission_Level < 0) {
+    if (
+      !propertyData.featureData.Expected_Emission_Level ||
+      propertyData.featureData.Expected_Emission_Level < 0
+    ) {
       errors.Expected_Emission_Level = "Expected Emission Level is required";
     }
 
@@ -261,19 +265,6 @@ const PropertyForm = ({
         </div>
 
         <div className={css.inputContainer}>
-          <div>
-            <label>Mortgage</label>
-            <input
-              type="number"
-              value={propertyData.featureData.Mortgage}
-              onChange={(e) => {
-                onChange("Mortgage", e.target.value);
-              }}
-            />
-            {formErrors.Mortgage && (
-              <p className={css.error}>{formErrors.Mortgage}</p>
-            )}
-          </div>
           <div>
             <label>More / Extra</label>
             <input

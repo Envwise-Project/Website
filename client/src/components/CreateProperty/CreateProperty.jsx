@@ -11,7 +11,7 @@ const CreateProperty = () => {
   const [currentForm, setCurrentForm] = useState(1);
 
   const [ownerData, setOwnerData] = useState({
-    FirstName: "",
+    Firstname: "",
     Surname: "",
     Address: "",
     City: "",
@@ -42,11 +42,11 @@ const CreateProperty = () => {
     Current_Emission: "",
     Expected_Emission_Level: "",
     More: "",
-    Mortgage: "",
   });
 
   const [financialData, setFinancialData] = useState({
     Market_value_of_the_property: "",
+    Mortgage: "",
     Investment_type: "",
     Percent_of_property_tokenized: "",
     Rental_yield: "",
@@ -139,9 +139,28 @@ const CreateProperty = () => {
     }
   }, [navigate, isAuthenticated, isLoading, admin]);
 
-  const handleSubmit = () => {
-    alert("Send Everything");
-    console.log(property);
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/properties", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(property),
+      });
+
+      if (response.ok) {
+        // El POST se realizó con éxito
+        alert("Request sent successfully!");
+        console.log(property);
+      } else {
+        // Error al realizar el POST
+        alert("Error sending the request.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error sending the request.");
+    }
   };
 
   const handleNext = () => {
