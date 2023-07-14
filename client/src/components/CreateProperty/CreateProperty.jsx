@@ -120,7 +120,7 @@ const CreateProperty = () => {
     admin = import.meta.env.VITE_ADMIN_DEV2;
   if (user?.sub === import.meta.env.VITE_ADMIN_ALAN)
     admin = import.meta.env.VITE_ADMIN_ALAN;
-  if (user?.sub === import.meta.env.VITE_ADMIN_LUIS)
+  if (user?.sub === import.meta.env.VITE_ADMIN_GABRIEL)
     admin = import.meta.env.VITE_ADMIN_LUIS;
   if (user?.sub === import.meta.env.VITE_ADMIN_JAVVAD)
     admin = import.meta.env.VITE_ADMIN_JAVVAD;
