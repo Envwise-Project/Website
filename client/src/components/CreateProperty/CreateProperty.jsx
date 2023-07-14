@@ -6,12 +6,13 @@ import Loading from "../Loading/Loading.jsx";
 import OwnerForm from "./OwnerForm";
 import PropertyForm from "./PropertyForm";
 import FinancialForm from "./FinancialForm";
+const serverURL = import.meta.env.VITE_SERVER_URL;
 
 const CreateProperty = () => {
   const [currentForm, setCurrentForm] = useState(1);
 
   const [ownerData, setOwnerData] = useState({
-    FirstName: "",
+    Firstname: "",
     Surname: "",
     Address: "",
     City: "",
@@ -42,11 +43,11 @@ const CreateProperty = () => {
     Current_Emission: "",
     Expected_Emission_Level: "",
     More: "",
-    Mortgage: "",
   });
 
   const [financialData, setFinancialData] = useState({
     Market_value_of_the_property: "",
+    Mortgage: "",
     Investment_type: "",
     Percent_of_property_tokenized: "",
     Rental_yield: "",
@@ -139,9 +140,26 @@ const CreateProperty = () => {
     }
   }, [navigate, isAuthenticated, isLoading, admin]);
 
-  const handleSubmit = () => {
-    alert("Send Everything");
-    console.log(property);
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch(serverURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(property),
+      });
+
+      if (response.ok) {
+        alert("Request sent successfully!");
+        console.log(property);
+      } else {
+        alert("Error sending the request.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error sending the request.");
+    }
   };
 
   const handleNext = () => {
