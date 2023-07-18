@@ -54,7 +54,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       Link_Image: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.ARRAY(DataTypes.STRING(100)),
         allowNull: false,
       },
       Link_Document: {

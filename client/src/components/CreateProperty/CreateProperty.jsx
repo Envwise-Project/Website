@@ -10,7 +10,7 @@ const serverURL = import.meta.env.VITE_SERVER_URL;
 
 const CreateProperty = () => {
   const [currentForm, setCurrentForm] = useState(1);
-
+  const [images, setImages] = useState([]);
   const [ownerData, setOwnerData] = useState({
     Firstname: "",
     Surname: "",
@@ -38,7 +38,7 @@ const CreateProperty = () => {
     Amenities: "",
     Rooms: "",
     Occupancy_Status: "",
-    Link_Image: "",
+    Link_Image: images,
     Link_Document: "",
     Current_Emission: "",
     Expected_Emission_Level: "",
@@ -187,6 +187,8 @@ const CreateProperty = () => {
           onNext={handleNext}
           onChange={updateFeatureData}
           propertyData={property}
+          setImages={setImages}
+          images={images}
         />
       )}
       {currentForm === 3 && (
