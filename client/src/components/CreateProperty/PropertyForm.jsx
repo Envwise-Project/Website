@@ -2,9 +2,8 @@ import { useState } from "react";
 import css from "./CreateProperty.module.css";
 import ProgressBar from "./ProgressBar";
 import backBtn from "../../assets/back_btn.svg";
-import imageIcon from "../../assets/image.svg";
-import documentIcon from "../../assets/document.svg";
 import SelectCountry from "./SelectCountry";
+import UploadImages from "./UploadImages";
 
 const PropertyForm = ({
   handleSubmit,
@@ -12,6 +11,8 @@ const PropertyForm = ({
   onNext,
   onChange,
   propertyData,
+  setImages,
+  images,
 }) => {
   const [formErrors, setFormErrors] = useState({});
 
@@ -320,28 +321,11 @@ const PropertyForm = ({
             )}
           </div>
         </div>
-
-        <div className={css.inputContainer}>
-          <div>
-            <label>Images</label>
-            <div className={css.drop}>
-              <img src={imageIcon} alt="image icon" />
-              <p>Upload pictures of the property. JPG or PNG</p>
-              <button>Browse</button>
-            </div>
-          </div>
-        </div>
-
-        <div className={css.inputContainer}>
-          <div>
-            <label>Documents</label>
-            <div className={css.drop}>
-              <img src={documentIcon} alt="Documents Icon" />
-              <p>Upload Documents of the property. Doc or PDF</p>
-              <button>Browse</button>
-            </div>
-          </div>
-        </div>
+        <UploadImages
+          onChange={onChange}
+          setImages={setImages}
+          images={images}
+        />
       </div>
 
       <button
