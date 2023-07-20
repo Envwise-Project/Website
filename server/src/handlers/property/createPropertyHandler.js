@@ -1,6 +1,6 @@
 const {
   createProperty,
-} = require("../controllers/createPropertyController.js");
+} = require("../../controllers/property/createPropertyController.js");
 
 async function createPropertyHandler(req, res) {
   const property = req.body;

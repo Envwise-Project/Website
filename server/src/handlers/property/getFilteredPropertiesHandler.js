@@ -1,6 +1,6 @@
 const {
   getFilteredProperties,
-} = require("../controllers/getFilteredPropertiesController.js");
+} = require("../../controllers/property/getFilteredPropertiesController.js");
 
 async function getFilteredPropertiesHandler(req, res) {
   try {

@@ -1,6 +1,6 @@
 const {
   getAllProperties,
-} = require("../controllers/getAllPropertiesController.js");
+} = require("../../controllers/property/getAllPropertiesController.js");
 
 async function getAllPropertiesHandler(req, res) {
   try {

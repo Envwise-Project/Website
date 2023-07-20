@@ -1,4 +1,4 @@
-const { Property, Owner, Financial, Feature } = require("../db");
+const { Property, Owner, Financial, Feature } = require("../../db");
 
 async function createProperty(propertyData) {
   const { ownerData, featureData, financialData } = propertyData;
