@@ -7,6 +7,7 @@ module.exports = (sequelize) => {
       Transaction_ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
       },
       Transaction_Date: {
         type: DataTypes.DATE,
@@ -25,17 +26,9 @@ module.exports = (sequelize) => {
       },
       ID_User: {
         type: DataTypes.INTEGER,
-        references: {
-          model: "Owner",
-          key: "ID_owner",
-        },
       },
       ID_Property: {
         type: DataTypes.INTEGER,
-        references: {
-          model: "Property",
-          key: "ID_Property",
-        },
       },
     },
     {

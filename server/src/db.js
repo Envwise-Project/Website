@@ -3,16 +3,12 @@ const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 
-
-const sequelize = new Sequelize(
-  process.env.DATABASE_URL,
-  {
-    host: process.env.PGHOST,
-    dialect: 'postgres',
-    logging: false,
-    native: false,
-  }
-);
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  host: process.env.PGHOST,
+  dialect: "postgres",
+  logging: false,
+  native: false,
+});
 /*
 const { AZURE_POSTGRESQL_HOST, AZURE_POSTGRESQL_PORT, AZURE_POSTGRESQL_DATABASE, AZURE_POSTGRESQL_USER, AZURE_POSTGRESQL_PASSWORD, AZURE_POSTGRESQL_SSL } = process.env;
 
@@ -33,7 +29,6 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-// Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
 fs.readdirSync(path.join(__dirname, "/models"))
   .filter(
     (file) =>
@@ -43,9 +38,7 @@ fs.readdirSync(path.join(__dirname, "/models"))
     modelDefiners.push(require(path.join(__dirname, "/models", file)));
   });
 
-// Injectamos la conexion (sequelize) a todos los modelos
 modelDefiners.forEach((model) => model(sequelize));
-// Capitalizamos los nombres de los modelos ie: product => Product
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [
   entry[0][0].toUpperCase() + entry[0].slice(1),
@@ -53,21 +46,51 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Owner, Feature, Financial, Property } = sequelize.models;
+const { Property, Owner, Feature, Financial, User, Transaction } =
+  sequelize.models;
 
+Property.hasOne(Owner, { foreignKey: "ID_owner" });
+Owner.belongsTo(Property, { foreignKey: "ID_owner" });
 
-// Relaciones entre modelos
+Property.hasOne(Financial, { foreignKey: "ID_Financial" });
+Financial.belongsTo(Property, { foreignKey: "ID_Financial" });
 
-Owner.hasMany(Property, { foreignKey: 'ID_owner' });
-Property.belongsTo(Owner, { foreignKey: 'ID_owner' });
+Property.hasOne(Feature, { foreignKey: "ID_Feature" });
+Feature.belongsTo(Property, { foreignKey: "ID_Feature" });
 
-Property.hasOne(Financial, { foreignKey: 'ID_Financial' });
-Financial.belongsTo(Property, { foreignKey: 'ID_Financial' });
+User.hasMany(Property, {
+  as: "savedProperties",
+  foreignKey: "savedBy",
+});
+User.hasMany(Property, {
+  as: "publishedProperties",
+  foreignKey: "publishedBy",
+});
+User.hasMany(Property, {
+  as: "investedProperties",
+  foreignKey: "investedBy",
+});
 
-Property.hasOne(Feature, { foreignKey: 'ID_Feature' });
-Feature.belongsTo(Property, { foreignKey: 'ID_Feature' });
+User.hasMany(Transaction, {
+  foreignKey: "ID_User",
+  as: "transactions",
+});
+
+Transaction.belongsTo(User, {
+  foreignKey: "ID_User",
+  as: "user",
+});
+
+Transaction.belongsTo(Property, {
+  foreignKey: "ID_Property",
+  as: "property", 
+});
+
+Property.hasMany(Transaction, {
+  foreignKey: "ID_Property",
+});
 
 module.exports = {
-  ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
-  conn: sequelize, // para importart la conexión { conn } = require('./db.js');
+  ...sequelize.models,
+  conn: sequelize,
 };
