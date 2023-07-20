@@ -1,4 +1,4 @@
-const { User, Property } = require("../../db.js");
+const { User, Property, Transaction } = require("../../db.js");
 
 async function getAllUsers() {
   try {
@@ -7,6 +7,11 @@ async function getAllUsers() {
         { model: Property, as: "savedProperties" },
         { model: Property, as: "publishedProperties" },
         { model: Property, as: "investedProperties" },
+
+        {
+          model: Transaction,
+          as: "transactions",
+        },
       ],
     });
 

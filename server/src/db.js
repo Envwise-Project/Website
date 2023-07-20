@@ -46,7 +46,8 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Owner, Feature, Financial, Property, User } = sequelize.models;
+const { Property, Owner, Feature, Financial, User, Transaction } =
+  sequelize.models;
 
 Property.hasOne(Owner, { foreignKey: "ID_owner" });
 Owner.belongsTo(Property, { foreignKey: "ID_owner" });
@@ -57,7 +58,6 @@ Financial.belongsTo(Property, { foreignKey: "ID_Financial" });
 Property.hasOne(Feature, { foreignKey: "ID_Feature" });
 Feature.belongsTo(Property, { foreignKey: "ID_Feature" });
 
-//User.hasMany(Transaction, { foreignKey: "userId" });
 User.hasMany(Property, {
   as: "savedProperties",
   foreignKey: "savedBy",
@@ -69,6 +69,25 @@ User.hasMany(Property, {
 User.hasMany(Property, {
   as: "investedProperties",
   foreignKey: "investedBy",
+});
+
+User.hasMany(Transaction, {
+  foreignKey: "ID_User",
+  as: "transactions",
+});
+
+Transaction.belongsTo(User, {
+  foreignKey: "ID_User",
+  as: "user",
+});
+
+Transaction.belongsTo(Property, {
+  foreignKey: "ID_Property",
+  as: "property", 
+});
+
+Property.hasMany(Transaction, {
+  foreignKey: "ID_Property",
 });
 
 module.exports = {
