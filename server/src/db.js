@@ -2,14 +2,16 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-
+/*
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   host: process.env.PGHOST,
   dialect: "postgres",
   logging: false,
   native: false,
 });
-/*
+*/
+
+
 const { AZURE_POSTGRESQL_HOST, AZURE_POSTGRESQL_PORT, AZURE_POSTGRESQL_DATABASE, AZURE_POSTGRESQL_USER, AZURE_POSTGRESQL_PASSWORD, AZURE_POSTGRESQL_SSL } = process.env;
 
 const sequelize = new Sequelize({
@@ -22,8 +24,17 @@ const sequelize = new Sequelize({
   logging: false,
   native: false,
   ssl: AZURE_POSTGRESQL_SSL,
+  dialectOptions: {
+    authentication: {
+      type: 'azure-active-directory-msi-app-service',
+    },
+    options: {
+      encrypt: true,
+    },
+  },
 });
-*/
+
+
 
 const basename = path.basename(__filename);
 
