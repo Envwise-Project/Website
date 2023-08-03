@@ -2,15 +2,29 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
+
+const sequelize = new Sequelize({
+  host: process.env.AZURE_POSTGRESQL_HOST,
+  user: process.env.AZURE_POSTGRESQL_USER,
+  password: process.env.AZURE_POSTGRESQL_PASSWORD,
+  database: process.env.AZURE_POSTGRESQL_DATABASE,
+  port: process.env.AZURE_POSTGRESQL_PORT,
+  ssl: process.env.AZURE_POSTGRESQL_SSL,
+  dialect: "postgres",
+  logging: false,
+  native: false,
+});
+
 /*
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+
+ const sequelize = new Sequelize(process.env.DATABASE_URL, {
   host: process.env.PGHOST,
   dialect: "postgres",
   logging: false,
   native: false,
 });
-*/
-
+ 
+ 
 const { AZURE_POSTGRESQL_HOST, AZURE_POSTGRESQL_PORT, AZURE_POSTGRESQL_DATABASE, AZURE_POSTGRESQL_USER, AZURE_POSTGRESQL_PASSWORD, AZURE_POSTGRESQL_SSL } = process.env;
 
 const sequelize = new Sequelize({
@@ -32,7 +46,7 @@ const sequelize = new Sequelize({
     },
   },
 });
-
+*/
 
 const basename = path.basename(__filename);
 
@@ -92,7 +106,7 @@ Transaction.belongsTo(User, {
 
 Transaction.belongsTo(Property, {
   foreignKey: "ID_Property",
-  as: "property", 
+  as: "property",
 });
 
 Property.hasMany(Transaction, {
